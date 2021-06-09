@@ -8,12 +8,20 @@ function onInit() {
   gCtx = gCanvas.getContext('2d');
   drawImg();
   _loadFont();
+  renderImgs();
 }
 
-function onCanvasClick(ev) {}
-
+function renderImgs() {
+  var imgs = getImgs();
+  var strHTML = '';
+  imgs.map((img) => {
+    strHTML += `<article data-imgId="${img.id}" class="meme" onclick="onMemeClicked(this)">
+                <img src="${img.url}" alt class="meme-img">
+            </article>`;
+  });
+  document.querySelector('.img-gallery').innerHTML = strHTML;
+}
 function onMemeClicked(el) {
-  console.log('el:', el);
   var memeId = el.dataset.imgid;
   updateGMeme(memeId);
   drawImg();

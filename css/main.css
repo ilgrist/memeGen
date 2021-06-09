@@ -72,7 +72,7 @@ a:hover {
 
 /* Meme Gallery */
 
-.meme-gallery {
+.img-gallery {
   height: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
@@ -80,7 +80,8 @@ a:hover {
   gap: 10px 10px;
 }
 
-.meme-gallery .meme {
+.img-gallery .meme {
+  cursor: pointer;
 }
 
 /* Helpers */
