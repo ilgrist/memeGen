@@ -2,6 +2,14 @@
   box-sizing: border-box;
 }
 
+/* FONTS */
+
+@font-face {
+  font-family: impact;
+  src: url(/Day29-30-Sprint2/memeGen/fonts/impact/impact.ttf);
+}
+
+/* BASE */
 body {
   margin: 0;
 }
