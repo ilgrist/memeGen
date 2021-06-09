@@ -54,7 +54,7 @@ function getImgs() {
 }
 
 function switchLine() {
-  var idx = getLineIdx();
+  var idx = getSelLineIdx();
   idx = idx === 1 ? 0 : 1;
   gMeme.selectedLineIdx = idx;
 }
@@ -64,12 +64,12 @@ function updateImgId(imgId) {
 }
 
 function updateFontSize(diff) {
-  const idx = getLineIdx();
+  const idx = getSelLineIdx();
   gMeme.lines[idx].size += diff * gTextSizeMod;
 }
 
 function updateLineY(diff) {
-  const idx = getLineIdx();
+  const idx = getSelLineIdx();
   gMeme.lines[idx].pos.y += diff * gLineXMod;
 }
 
@@ -82,11 +82,11 @@ function getLines() {
 }
 
 function getLine() {
-  const idx = getLineIdx();
+  const idx = getSelLineIdx();
   return gMeme.lines[idx];
 }
 
-function getLineIdx() {
+function getSelLineIdx() {
   return gMeme.selectedLineIdx;
 }
 
@@ -101,6 +101,6 @@ function getImgURL() {
 }
 
 function getLinePos() {
-  const idx = getLineIdx();
+  const idx = getSelLineIdx();
   return gMeme.lines[idx].pos;
 }

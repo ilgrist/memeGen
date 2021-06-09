@@ -13,6 +13,7 @@ function onInit() {
 
 function onSwitchLine() {
   switchLine();
+  document.querySelector('.memeLineInput').value = '';
   drawImg();
 }
 
@@ -48,21 +49,23 @@ function drawImg() {
   img.src = memeImg;
   img.onload = () => {
     gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
-    drawLine();
+    drawLines();
   };
 }
 
 function drawLines() {
   const lines = getLines();
-  lines.map((line) => {
+  lines.forEach((line, idx) => {
+    selLineIdx = getSelLineIdx();
+    var isFocus = selLineIdx === idx ? true : false;
     var pos = line.pos;
-    drawLine(line, pos);
+    drawLine(line, pos, isFocus);
   });
 }
 
-function drawLine(line, pos) {
+function drawLine(line, pos, isFocus) {
   const text = line.txt;
-  gCtx.lineWidth = 2;
+  gCtx.lineWidth = isFocus ? 3 : 2;
   gCtx.fillStyle = line.color;
   gCtx.font = `${line.size}px ` + 'impact';
   gCtx.textAlign = line.align;
@@ -71,15 +74,8 @@ function drawLine(line, pos) {
 }
 
 function onLineChange(el) {
-  var text = el.value;
-  gMeme.lines[gLine].txt = text;
+  const text = el.value;
+  const idx = getSelLineIdx();
+  gMeme.lines[idx].txt = text;
   drawImg();
-}
-
-function renderCanvas() {
-  gCtx.save();
-  gCtx.fillStyle = '#ede5ff';
-  gCtx.fillRect(0, 0, gCanvas.width, gCanvas.height);
-  renderCircle();
-  gCtx.restore();
 }
