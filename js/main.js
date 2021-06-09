@@ -79,3 +79,5 @@ function onLineChange(el) {
   gMeme.lines[idx].txt = text;
   drawImg();
 }
+
+function onCanvasClick(ev) {}
