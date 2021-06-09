@@ -10,6 +10,27 @@
 </head>
 
 <body onload="onInit()">
+    <div class="main-container flex space-between align-center full-height">
+        <header class="main-header">
+            <div class="logo-cont">
+                <img src="img/LOGO.png" alt="" class="logo">
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list clean-list flex space-between align-center">
+                    <li>Memes</li>
+                    <li>Gallery</li>
+                    <li>About</li>
+                </ul>
+            </nav>
+        </header>
+        <section class="main-content">
+            <div class="canvas-cont">
+                <canvas class="memeCanvas" height="450" width="450" onclick="onCanvasClick(event)"></canvas>
+            </div>
+        </section>
+    </div>
+
+    <script src="js/main-service.js"></script>
     <script src="js/main.js"></script>
 </body>
 
