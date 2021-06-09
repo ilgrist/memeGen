@@ -10,7 +10,7 @@
 </head>
 
 <body onload="onInit()">
-    <div class="main-container flex space-between align-center full-height">
+    <div class="main-container flex space-between align-center">
         <header class="main-header">
             <div class="logo-cont">
                 <img src="img/LOGO.png" alt="" class="logo">
@@ -23,16 +23,17 @@
                 </ul>
             </nav>
         </header>
-        <section class="main-content">
-            <article class="main-editor-cont flex">
-                <div class="canvas-cont">
-                    <canvas class="memeCanvas" height="450" width="450" onclick="onCanvasClick(event)"></canvas>
-                </div>
-                <div class="editor-cont flex column space-between align-center full-height">
-                    <h2 class="editor-title">Edit the text lines</h2>
-                    <input type="text" class="memeLineInput" placeholder="Enter the text" oninput="onLineChange(this)">
-                </div>
-            </article>
+        <article class="main-editor-cont flex">
+            <div class="canvas-cont">
+                <canvas class="memeCanvas" height="450" width="450" onclick="onCanvasClick(event)"></canvas>
+            </div>
+            <div class="editor-cont flex column align-center full-height">
+                <h2 class="editor-title">Edit the text lines</h2>
+                <input type="text" class="memeLineInput" placeholder="Enter the text" oninput="onLineChange(this)">
+            </div>
+        </article>
+        <section class="meme-gallery">
+            <article class="meme 1" style="background-image: url(img/1.jpg);"></article>
         </section>
     </div>
 
