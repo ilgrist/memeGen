@@ -24,9 +24,15 @@
             </nav>
         </header>
         <section class="main-content">
-            <div class="canvas-cont">
-                <canvas class="memeCanvas" height="450" width="450" onclick="onCanvasClick(event)"></canvas>
-            </div>
+            <article class="main-editor-cont flex">
+                <div class="canvas-cont">
+                    <canvas class="memeCanvas" height="450" width="450" onclick="onCanvasClick(event)"></canvas>
+                </div>
+                <div class="editor-cont flex column space-between align-center full-height">
+                    <h2 class="editor-title">Edit the text lines</h2>
+                    <input type="text" class="memeLineInput" placeholder="Enter the text" oninput="onLineChange(this)">
+                </div>
+            </article>
         </section>
     </div>
 

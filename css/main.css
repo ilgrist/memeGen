@@ -51,6 +51,7 @@ a:hover {
 
 .main-content {
   background-color: whitesmoke;
+  width: 100%;
 }
 
 /* Header */
@@ -59,11 +60,20 @@ a:hover {
   width: 10rem;
 }
 
+/* Meme Editor */
+.main-editor-cont > * {
+  flex-basis: 1;
+}
+
 /* Helpers */
 
 /* flex helpers */
 .flex {
   display: flex;
+}
+
+.flex.column {
+  flex-direction: column;
 }
 
 .flex.space-between {

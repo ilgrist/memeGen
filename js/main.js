@@ -1,5 +1,6 @@
 var gCanvas;
 var gCtx;
+var gLine = 0;
 var gMeme = {
   selectedImgId: 1,
   selectedLineIdx: 0,
@@ -24,21 +25,21 @@ function onInit() {
 function onCanvasClick(ev) {}
 
 function drawMemeImg() {
-  var memeImg = _getImgURL();
+  var memeImg = getImgURL();
   var img = new Image();
   img.src = memeImg;
   img.onload = () => {
     gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
+    drawLine();
   };
 }
 
-function drawLine(lineIdx) {
+function drawLine() {
   //   drawCenterLine();
-  const line = _getMemeLine(lineIdx);
+  const line = gMeme.lines[gLine];
   const text = line.txt;
   gCtx.lineWidth = 2;
   gCtx.fillStyle = line.color;
-  //   gCtx.font = '40px impact';
   gCtx.font = `${line.size}px ` + 'impact';
   gCtx.textAlign = line.align;
   const x = 225;
@@ -47,11 +48,27 @@ function drawLine(lineIdx) {
   gCtx.strokeText(text, x, y);
 }
 
-function _getMeme() {
+function onLineChange(el) {
+  var text = el.value;
+  gMeme.lines[gLine].txt = text;
+  //   gCtx.save();
+  drawMemeImg();
+  //   gCtx.restore();
+}
+
+function renderCanvas() {
+  gCtx.save();
+  gCtx.fillStyle = '#ede5ff';
+  gCtx.fillRect(0, 0, gCanvas.width, gCanvas.height);
+  renderCircle();
+  gCtx.restore();
+}
+
+function getMeme() {
   return gMeme;
 }
 
-function _getImgURL() {
+function getImgURL() {
   var imgId = gMeme.selectedImgId;
   var img = gImgs.find((image) => {
     return image.id === imgId;
@@ -59,9 +76,9 @@ function _getImgURL() {
   return img.url;
 }
 
-function _getMemeLine(lineIdx) {
-  return gMeme.lines[lineIdx];
-}
+// function getMemeLine(lineIdx) {
+//   return gMeme.lines[lineIdx];
+// }
 
 function drawCenterLine() {
   gCtx.strokeStyle = 'red';
