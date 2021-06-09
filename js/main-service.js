@@ -11,7 +11,14 @@ var gMeme = {
   ],
 };
 
-var gImgs = [{ id: 1, url: 'img/1.jpg', keywords: ['happy'] }];
+var gImgs = [
+  { id: 1, url: 'img/1.jpg', keywords: ['happy'] },
+  { id: 2, url: 'img/2.jpg', keywords: ['scared'] },
+];
+
+function updateGMeme(imgId) {
+  gMeme.selectedImgId = imgId;
+}
 
 function _loadFont() {
   document.querySelector('.canvas-cont').style.fontFamily = 'impact';
@@ -31,10 +38,8 @@ function getMeme() {
 }
 
 function getImgURL() {
-  var imgId = gMeme.selectedImgId;
-  var img = gImgs.find((image) => {
-    return image.id === imgId;
-  });
+  var imgId = +gMeme.selectedImgId;
+  var img = gImgs.find(({ id }) => id === imgId);
   return img.url;
 }
 

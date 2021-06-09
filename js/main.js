@@ -12,6 +12,13 @@ function onInit() {
 
 function onCanvasClick(ev) {}
 
+function onMemeClicked(el) {
+  console.log('el:', el);
+  var memeId = el.dataset.imgid;
+  updateGMeme(memeId);
+  drawImg();
+}
+
 function drawImg() {
   var memeImg = getImgURL();
   var img = new Image();
