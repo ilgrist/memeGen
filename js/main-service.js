@@ -3,10 +3,24 @@ var gMeme = {
   selectedLineIdx: 0,
   lines: [
     {
-      txt: 'Fly, you fools!',
+      txt: 'Add title text here',
       size: 40,
       align: 'center',
       color: 'white',
+      pos: {
+        x: 225,
+        y: 50,
+      },
+    },
+    {
+      txt: 'Add secondary text here',
+      size: 30,
+      align: 'center',
+      color: 'white',
+      pos: {
+        x: 225,
+        y: 350,
+      },
     },
   ],
 };
@@ -32,16 +46,39 @@ var gImgs = [
   { id: 18, url: 'img/18.jpg', keywords: ['scared'] },
 ];
 
+var gTextSizeMod = 2;
+var gLineXMod = 2;
+
 function getImgs() {
   return gImgs;
 }
 
-function updateGMeme(imgId) {
+function switchLine() {
+  var idx = getLineIdx();
+  idx = idx === 1 ? 0 : 1;
+  gMeme.selectedLineIdx = idx;
+}
+
+function updateImgId(imgId) {
   gMeme.selectedImgId = imgId;
+}
+
+function updateFontSize(diff) {
+  const idx = getLineIdx();
+  gMeme.lines[idx].size += diff * gTextSizeMod;
+}
+
+function updateLineY(diff) {
+  const idx = getLineIdx();
+  gMeme.lines[idx].pos.y += diff * gLineXMod;
 }
 
 function _loadFont() {
   document.querySelector('.canvas-cont').style.fontFamily = 'impact';
+}
+
+function getLines() {
+  return gMeme.lines;
 }
 
 function getLine() {
@@ -63,9 +100,7 @@ function getImgURL() {
   return img.url;
 }
 
-function drawCenterLine() {
-  gCtx.strokeStyle = 'red';
-  gCtx.moveTo(225, 20);
-  gCtx.lineTo(225, 170);
-  gCtx.stroke();
+function getLinePos() {
+  const idx = getLineIdx();
+  return gMeme.lines[idx].pos;
 }

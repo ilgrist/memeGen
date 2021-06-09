@@ -30,14 +30,14 @@
             <div class="editor-cont flex column align-center full-height">
                 <h2 class="editor-title">Edit the text lines</h2>
                 <input type="text" class="memeLineInput" placeholder="Enter the text" oninput="onLineChange(this)">
+                <button class="btn-decFont" onclick="onChangeFontSize(1)">font ↑</button>
+                <button class="btn-incFont" onclick="onChangeFontSize(-1)">font ↓</button>
+                <button class="btn-decLineX" onclick="onChangeLineY(-1)">line ↑</button>
+                <button class="btn-incLineX" onclick="onChangeLineY(1)">line ↓</button>
+                <button class="addline" onclick="onSwitchLine()">switch line</button>
             </div>
         </article>
         <section class="img-gallery">
-            <!-- <article data-imgId="1" class="meme" onclick="onMemeClicked(this)">
-                <img src="img/1.jpg" alt class="meme-img">
-            </article>
-            <article data-imgId="2" class="meme" onclick="onMemeClicked(this)">
-                <img src="img/2.jpg" alt class="meme-img"> -->
             </article>
         </section>
     </div>

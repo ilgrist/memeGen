@@ -67,7 +67,7 @@ a:hover {
 
 /* Meme Editor */
 .main-editor-cont > * {
-  flex-basis: 1;
+  width: 100%;
 }
 
 /* Meme Gallery */

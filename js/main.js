@@ -11,6 +11,21 @@ function onInit() {
   renderImgs();
 }
 
+function onSwitchLine() {
+  switchLine();
+  drawImg();
+}
+
+function onChangeFontSize(diff) {
+  updateFontSize(diff);
+  drawImg();
+}
+
+function onChangeLineY(diff) {
+  updateLineY(diff);
+  drawImg();
+}
+
 function renderImgs() {
   var imgs = getImgs();
   var strHTML = '';
@@ -23,7 +38,7 @@ function renderImgs() {
 }
 function onMemeClicked(el) {
   var memeId = el.dataset.imgid;
-  updateGMeme(memeId);
+  updateImgId(memeId);
   drawImg();
 }
 
@@ -37,18 +52,22 @@ function drawImg() {
   };
 }
 
-function drawLine() {
-  //   drawCenterLine();
-  const line = getLine();
+function drawLines() {
+  const lines = getLines();
+  lines.map((line) => {
+    var pos = line.pos;
+    drawLine(line, pos);
+  });
+}
+
+function drawLine(line, pos) {
   const text = line.txt;
   gCtx.lineWidth = 2;
   gCtx.fillStyle = line.color;
   gCtx.font = `${line.size}px ` + 'impact';
   gCtx.textAlign = line.align;
-  const x = 225;
-  const y = 50;
-  gCtx.fillText(text, x, y);
-  gCtx.strokeText(text, x, y);
+  gCtx.fillText(text, pos.x, pos.y);
+  gCtx.strokeText(text, pos.x, pos.y);
 }
 
 function onLineChange(el) {
