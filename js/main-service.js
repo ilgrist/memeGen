@@ -59,9 +59,10 @@ function addLine() {
 function getNewLinePosY() {
   var posY = 50;
   const linesNum = getLinesNum();
-  if (linesNum === 1) posY = 400;
-  else if (linesNum > 1) {
-    var lines = getLines();
+  if (linesNum === 1) return (posY = 400);
+  if (linesNum > 1) {
+    var lines = [];
+    lines = getLines();
     lines.sort((lineA, lineB) => lineA.pos.y - lineB.pos.y);
     var maxDiff = -Infinity;
     var targLineY = lines[0].pos.y;
@@ -106,7 +107,8 @@ function getImgs() {
 
 function switchLine() {
   var idx = getSelLineIdx();
-  idx = idx === 1 ? 0 : 1;
+  const linesNum = getLinesNum();
+  idx = idx === linesNum - 1 ? 0 : ++idx;
   gMeme.selectedLineIdx = idx;
 }
 
