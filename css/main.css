@@ -9,7 +9,17 @@
   src: url(/Day29-30-Sprint2/memeGen/fonts/impact/impact.ttf);
 }
 
+@font-face {
+  font-family: roboto;
+  src: url(/Day29-30-Sprint2/memeGen/fonts/Roboto/Roboto-Medium.ttf);
+}
+
 /* BASE */
+
+html {
+  font-family: roboto, sans-serif;
+  color: #989898;
+}
 body {
   margin: 0;
 }
@@ -27,8 +37,13 @@ h6 {
   margin: 0;
 }
 
+ul {
+  margin: 0;
+}
+
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 a:hover {
@@ -36,33 +51,41 @@ a:hover {
 }
 
 /* Layout */
-.main-container {
-  flex-direction: column;
-  height: 100vh;
-}
 
-.main-container > * {
-  width: 100%;
-}
+/* Componenets */
+
 .main-header {
+  background-color: #ffffff;
+  height: 3.125rem;
+  padding: 0 1.25rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-}
-.main-header .logo {
-  src: url('Day29-30-Sprint2/memeGen/img/LOGO.png');
+  box-shadow: 0px 1px #dbdbdb;
 }
 
-.main-content {
-  background-color: whitesmoke;
-  width: 100%;
-}
-
-/* Header */
-/* Logo */
 .logo-cont {
   width: 10rem;
+}
+
+.main-header .main-nav {
+  height: 100%;
+}
+.main-header .main-nav > *:not(:last-child) {
+  margin-inline-end: 3.125rem;
+}
+.main-header .main-nav li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.125rem;
+}
+.main-header .main-nav a:hover {
+  box-shadow: 0px 1px #ff9826;
+}
+
+.main-header .main-nav a:active {
+  color: #ff9826;
 }
 
 /* Meme Editor */
@@ -110,5 +133,4 @@ a:hover {
 /* List helpers */
 .clean-list {
   list-style-type: none;
-  margin: 0;
 }

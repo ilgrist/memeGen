@@ -10,38 +10,34 @@
 </head>
 
 <body onload="onInit()">
-    <div class="main-container flex space-between align-center">
-        <header class="main-header">
-            <div class="logo-cont">
-                <img src="img/LOGO.png" alt="" class="logo">
-            </div>
-            <nav class="main-nav">
-                <ul class="nav-list clean-list flex space-between align-center">
-                    <li>Memes</li>
-                    <li>Gallery</li>
-                    <li>About</li>
-                </ul>
-            </nav>
-        </header>
-        <article class="main-editor-cont flex">
-            <div class="canvas-cont">
-                <canvas class="memeCanvas" height="450" width="450" onclick="onCanvasClick(event)"></canvas>
-            </div>
-            <div class="editor-cont flex column align-center full-height">
-                <h2 class="editor-title">Edit the text lines</h2>
-                <input type="text" class="memeLineInput" placeholder="Enter the text" oninput="onTextChange(this)">
-                <button class="btn-decFont" onclick="onChangeFontSize(1)">font ↑</button>
-                <button class="btn-incFont" onclick="onChangeFontSize(-1)">font ↓</button>
-                <button class="btn-decLineX" onclick="onChangeLineY(-1)">line ↑</button>
-                <button class="btn-incLineX" onclick="onChangeLineY(1)">line ↓</button>
-                <button class="btn-addLine" onclick="onAddLine()">Add Line</button>
-                <button class="addline" onclick="onSwitchLine()">switch line</button>
-            </div>
+    <header class="main-header">
+        <div class="logo-cont">
+            <img src="img/LOGO.png" alt="" class="logo">
+        </div>
+        <ul class="main-nav clean-list flex space-between align-center">
+            <li> <a href="#">Memes</a></li>
+            <li> <a href="#">Gallery</a></li>
+            <li> <a href="#">About</a></li>
+        </ul>
+    </header>
+    <article class="main-editor-cont flex">
+        <div class="canvas-cont">
+            <canvas class="memeCanvas" height="450" width="450" onclick="onCanvasClick(event)"></canvas>
+        </div>
+        <div class="editor-cont flex column align-center full-height">
+            <h2 class="editor-title">Edit the text lines</h2>
+            <input type="text" class="memeLineInput" placeholder="Enter the text" oninput="onTextChange(this)">
+            <button class="btn-decFont" onclick="onChangeFontSize(1)">font ↑</button>
+            <button class="btn-incFont" onclick="onChangeFontSize(-1)">font ↓</button>
+            <button class="btn-decLineX" onclick="onChangeLineY(-1)">line ↑</button>
+            <button class="btn-incLineX" onclick="onChangeLineY(1)">line ↓</button>
+            <button class="btn-addLine" onclick="onAddLine()">Add Line</button>
+            <button class="addline" onclick="onSwitchLine()">switch line</button>
+        </div>
+    </article>
+    <section class="img-gallery">
         </article>
-        <section class="img-gallery">
-            </article>
-        </section>
-    </div>
+    </section>
 
     <script src="js/main-service.js"></script>
     <script src="js/main.js"></script>
