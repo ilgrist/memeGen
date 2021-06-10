@@ -50,6 +50,16 @@ a:hover {
   text-decoration: none;
 }
 
+button {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #727272;
+}
+
 /* Layout */
 
 /* Componenets */
@@ -147,21 +157,32 @@ a:hover {
 }
 
 .line-ops-btns-cont button {
-  border: none;
-  cursor: pointer;
-  background-color: transparent;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 20px;
-  color: #727272;
 }
 
 .text-ops-cont {
   display: flex;
   flex-direction: column;
+  border-radius: 10px;
+  background-color: #ffffff;
 }
 
+.text-ops-btn-cont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #dedede;
+  padding: 0.625rem;
+}
+.memeLineInput {
+  width: 100%;
+  border: none;
+  border-radius: 30px;
+  padding: 1.25rem;
+  color: #989898;
+  outline: none;
+  color: black;
+}
 /* Gallery */
 
 .gallery-cont {
