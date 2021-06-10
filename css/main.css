@@ -89,11 +89,38 @@ a:hover {
 }
 
 /* Meme Editor */
+.main-editor-cont {
+  display: flex;
+}
+
 .main-editor-cont > * {
   width: 100%;
 }
 
-/* Meme Gallery */
+/* Gallery */
+
+.gallery-cont {
+  background-color: #e5e5e5;
+}
+
+.gallery-cont .search-bar-cont {
+  padding: 1.8125rem 1.25rem;
+}
+
+.gallery-cont .search-bar {
+  width: 100%;
+  border: 1px solid #e5e5e5;
+  border-radius: 30px;
+  padding: 1.25rem;
+  line-height: 18.75px;
+  color: #989898;
+  outline: none;
+}
+
+.gallery-cont .search-bar::placeholder {
+  border: none;
+  font-style: italic;
+}
 
 .img-gallery {
   height: 100%;
