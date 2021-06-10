@@ -12,8 +12,9 @@ function onInit() {
 
 function onSwitchLine() {
   switchLine();
-  document.querySelector('.memeLineInput').value = '';
+  renderLineText();
   drawImg();
+  focusOnTxtInput();
 }
 
 function onChangeFontSize(diff) {
@@ -21,9 +22,28 @@ function onChangeFontSize(diff) {
   drawImg();
 }
 
+function renderLineText() {
+  const text = getLineText();
+  renderInput(text);
+}
+
+function clearTxtInput() {
+  document.querySelector('.memeLineInput').value = '';
+}
+
+function renderInput(val) {
+  document.querySelector('.memeLineInput').value = val;
+}
+
 function onAddLine() {
   addLine();
   drawImg();
+  clearTxtInput();
+  focusOnTxtInput();
+}
+
+function focusOnTxtInput() {
+  document.querySelector('.memeLineInput').focus();
 }
 
 function onChangeLineY(diff) {
@@ -79,7 +99,7 @@ function drawLine(line, pos, isFocus) {
 }
 
 function onTextChange(el) {
-  checkIfFirstLine();
+  if (!getLinesNum()) addLine();
   const text = el.value;
   const idx = getSelLineIdx();
   gMeme.lines[idx].txt = text;

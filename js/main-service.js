@@ -80,9 +80,6 @@ function getNewLinePosY() {
   return posY;
 }
 
-function checkIfFirstLine() {
-  if (!gMeme.linesNum) addLine();
-}
 // TODO maybe remove
 function getLinesNum() {
   return gMeme.lines.length;
@@ -156,4 +153,9 @@ function getImgURL() {
 function getLinePos() {
   const idx = getSelLineIdx();
   return gMeme.lines[idx].pos;
+}
+
+function getLineText() {
+  const idx = getSelLineIdx();
+  return gMeme.lines[idx].txt;
 }
