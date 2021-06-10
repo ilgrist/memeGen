@@ -111,6 +111,13 @@ a:hover {
 
 .canvas-cont {
   flex-grow: 1.61;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.meme-canvas {
+  border-radius: 10px;
 }
 
 .editor-cont {
