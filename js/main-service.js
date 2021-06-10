@@ -1,7 +1,6 @@
 var gMeme = {
   selectedImgId: 1,
   selectedLineIdx: 0,
-  linesNum: 0,
   lines: [
     // {
     //   txt: 'Add title text here',
@@ -51,10 +50,33 @@ var gTextSizeMod = 2;
 var gLineXMod = 2;
 
 function addLine() {
-  var posY = 50;
+  var posY = getNewLinePosY();
   var newLine = _createLine(posY);
   gMeme.lines.push(newLine);
-  gMeme.linesNum++;
+  gMeme.selectedLineIdx = gMeme.lines.length - 1;
+}
+
+function getNewLinePosY() {
+  var posY = 50;
+  const linesNum = getLinesNum();
+  if (linesNum === 1) posY = 400;
+  else if (linesNum > 1) {
+    var lines = getLines();
+    lines.sort((lineA, lineB) => lineA.pos.y - lineB.pos.y);
+    var maxDiff = -Infinity;
+    var targLineY = lines[0].pos.y;
+    for (i = 0; i < lines.length - 1; i++) {
+      var currLineY = lines[i].pos.y;
+      var nextLineY = lines[i + 1].pos.y;
+      var diff = Math.abs(currLineY - nextLineY);
+      if (diff > maxDiff) {
+        maxDiff = diff;
+        targLineY = currLineY;
+      }
+    }
+    posY = targLineY + Math.floor(maxDiff / 2);
+  }
+  return posY;
 }
 
 function checkIfFirstLine() {
@@ -62,13 +84,13 @@ function checkIfFirstLine() {
 }
 // TODO maybe remove
 function getLinesNum() {
-  return gMeme.linesNum;
+  return gMeme.lines.length;
 }
 
 function _createLine(posY) {
   return {
     txt: 'Add text here',
-    size: 30,
+    size: 40,
     align: 'center',
     color: 'white',
     pos: {

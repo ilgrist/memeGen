@@ -21,6 +21,11 @@ function onChangeFontSize(diff) {
   drawImg();
 }
 
+function onAddLine() {
+  addLine();
+  drawImg();
+}
+
 function onChangeLineY(diff) {
   updateLineY(diff);
   drawImg();
@@ -73,7 +78,7 @@ function drawLine(line, pos, isFocus) {
   gCtx.strokeText(text, pos.x, pos.y);
 }
 
-function onLineChange(el) {
+function onTextChange(el) {
   checkIfFirstLine();
   const text = el.value;
   const idx = getSelLineIdx();

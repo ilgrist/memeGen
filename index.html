@@ -29,11 +29,12 @@
             </div>
             <div class="editor-cont flex column align-center full-height">
                 <h2 class="editor-title">Edit the text lines</h2>
-                <input type="text" class="memeLineInput" placeholder="Enter the text" oninput="onLineChange(this)">
+                <input type="text" class="memeLineInput" placeholder="Enter the text" oninput="onTextChange(this)">
                 <button class="btn-decFont" onclick="onChangeFontSize(1)">font ↑</button>
                 <button class="btn-incFont" onclick="onChangeFontSize(-1)">font ↓</button>
                 <button class="btn-decLineX" onclick="onChangeLineY(-1)">line ↑</button>
                 <button class="btn-incLineX" onclick="onChangeLineY(1)">line ↓</button>
+                <button class="btn-addLine" onclick="onAddLine()">Add Line</button>
                 <button class="addline" onclick="onSwitchLine()">switch line</button>
             </div>
         </article>
