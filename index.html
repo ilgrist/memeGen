@@ -26,23 +26,33 @@
             <article class="canvas-cont">
                 <canvas class="meme-canvas" height="450" width="450" onclick="onCanvasClick(event)"></canvas>
             </article>
-            <article class="editor-cont flex column align-center full-height">
-                <div class="ops-cont">
-                    <div class="line-ops-cont">
-                        <h2 class="editor-title">Edit the text lines</h2>
-                        <button class="btn-addLine" onclick="onAddLine()">Add Line</button>
-                        <button class="addline" onclick="onSwitchLine()">switch line</button>
-                        <button class="btn-decLineX" onclick="onChangeLineY(-1)">line ↑</button>
-                        <button class="btn-incLineX" onclick="onChangeLineY(1)">line ↓</button>
+            <article class="editor-cont">
+                <div class="line-ops-cont">
+                    <h2 class="editor-title">Edit the text lines</h2>
+                    <div class="line-ops-btns-cont">
+                        <button class="btn-addLine" onclick="onAddLine()">+</button>
+                        <button class="addline" onclick="onSwitchLine()">⇅</button>
+                        <button class="btn-decLineX" onclick="onChangeLineY(-1)">↑</button>
+                        <button class="btn-incLineX" onclick="onChangeLineY(1)">↓</button>
                     </div>
-                    <div class="text-ops-cont">
-                        <input type="text" class="memeLineInput" placeholder="Enter the text"
-                            oninput="onTextChange(this)">
-                        <button class="btn-decFont" onclick="onChangeFontSize(1)">font ↑</button>
-                        <button class="btn-incFont" onclick="onChangeFontSize(-1)">font ↓</button>
-                    </div>
-                    <div class="emojis-cont"></div>
                 </div>
+                <div class="text-ops-cont">
+                    <div class="text-ops-btn-cont">
+                        <select name="fonts" class="selectFonts">
+                            <option value="impact">Impact</option>
+                            <option value="arial">Arial</option>
+                        </select>
+                        <button class="btn-decFont" onclick="onChangeFontSize(1)">Â</button>
+                        <button class="btn-incFont" onclick="onChangeFontSize(-1)">Ā</button> |
+                        <button class="btn-align left" onclick="alignText('left')">⪙</button>
+                        <button class="btn-align center" onclick="alignText('center')">Ξ</button>
+                        <button class="btn-align right" onclick="alignText('right')">⪚</button> |
+                        <input type="color" class="selectTextColor" onchange="onChangeTextColor()">
+                        <input type="color" class="selectFillColor" onchange="onChangeFillColor()">
+                    </div>
+                    <input type="text" class="memeLineInput" placeholder="Enter the text" oninput="onTextChange(this)">
+                </div>
+                <div class="emojis-cont"></div>
                 <button class="share-btn">Share</button>
             </article>
         </section>

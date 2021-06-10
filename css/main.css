@@ -125,10 +125,41 @@ a:hover {
   display: flex;
   flex-direction: column;
   background-color: #f8f8f8;
+  padding: 1.875rem 1.875rem 0 1.875rem;
 }
 
-.editor-cont .line-ops-cont {
-  padding-bottom: 100px;
+.line-ops-cont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1.3125rem;
+}
+
+.line-ops-cont h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.line-ops-btns-cont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.line-ops-btns-cont button {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  color: #727272;
+}
+
+.text-ops-cont {
+  display: flex;
+  flex-direction: column;
 }
 
 /* Gallery */
@@ -202,3 +233,5 @@ a:hover {
 .clean-list {
   list-style-type: none;
 }
+
+/* button helpers */
