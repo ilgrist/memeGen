@@ -109,6 +109,9 @@ a:hover {
 
 /* Helpers */
 
+.hidden {
+  display: none;
+}
 /* flex helpers */
 .flex {
   display: flex;

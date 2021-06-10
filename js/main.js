@@ -106,4 +106,16 @@ function onTextChange(el) {
   drawImg();
 }
 
+function onOpenEditor() {
+  console.log('opening memes');
+  document.querySelector('.img-gallery').classList.add('hidden');
+  document.querySelector('.main-editor-cont').classList.remove('hidden');
+}
+
+function onOpenGallery() {
+  console.log('opening memes');
+  document.querySelector('.main-editor-cont').classList.add('hidden');
+  document.querySelector('.img-gallery').classList.remove('hidden');
+}
+
 function onCanvasClick(ev) {}

@@ -15,12 +15,12 @@
             <img src="img/LOGO.png" alt="" class="logo">
         </div>
         <ul class="main-nav clean-list flex space-between align-center">
-            <li> <a href="#">Memes</a></li>
-            <li> <a href="#">Gallery</a></li>
-            <li> <a href="#">About</a></li>
+            <li><a href="#" onclick="onOpenEditor()">Memes</a></li>
+            <li><a href="#" onclick="onOpenGallery()">Gallery</a></li>
+            <li><a href="#">About</a></li>
         </ul>
     </header>
-    <article class="main-editor-cont flex">
+    <div class="main-editor-cont hidden">
         <div class="canvas-cont">
             <canvas class="memeCanvas" height="450" width="450" onclick="onCanvasClick(event)"></canvas>
         </div>
@@ -34,10 +34,9 @@
             <button class="btn-addLine" onclick="onAddLine()">Add Line</button>
             <button class="addline" onclick="onSwitchLine()">switch line</button>
         </div>
-    </article>
-    <section class="img-gallery">
-        </article>
-    </section>
+    </div>
+    <div class="img-gallery">
+    </div>
 
     <script src="js/main-service.js"></script>
     <script src="js/main.js"></script>
