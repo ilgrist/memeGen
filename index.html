@@ -16,31 +16,44 @@
         </div>
         <ul class="main-nav clean-list flex space-between align-center">
             <li><a href="#" onclick="onOpenMemes()">Memes</a></li>
-            <li><a href="#" onclick="onOpenGallery()">Gallery</a></li>
+            <li><a href="#" onclick="openGallery()">Gallery</a></li>
             <li><a href="#">About</a></li>
         </ul>
     </header>
-    <div class="main-editor-cont hidden">
-        <div class="canvas-cont">
-            <canvas class="memeCanvas" height="450" width="450" onclick="onCanvasClick(event)"></canvas>
-        </div>
-        <div class="editor-cont flex column align-center full-height">
-            <h2 class="editor-title">Edit the text lines</h2>
-            <input type="text" class="memeLineInput" placeholder="Enter the text" oninput="onTextChange(this)">
-            <button class="btn-decFont" onclick="onChangeFontSize(1)">font ↑</button>
-            <button class="btn-incFont" onclick="onChangeFontSize(-1)">font ↓</button>
-            <button class="btn-decLineX" onclick="onChangeLineY(-1)">line ↑</button>
-            <button class="btn-incLineX" onclick="onChangeLineY(1)">line ↓</button>
-            <button class="btn-addLine" onclick="onAddLine()">Add Line</button>
-            <button class="addline" onclick="onSwitchLine()">switch line</button>
-        </div>
-    </div>
-    <section class="gallery-cont">
-        <article class="search-bar-cont">
-            <input type="text" class="search-bar" placeholder="Search (under construction)">
-        </article>
-        <div class="img-gallery"></div>
-    </section>
+    <main class="main-content">
+        <section class="main-editor-cont">
+            <button class="gallery-btn" onclick="openGallery()">&#60 &#32 Back to Gallery</button>
+
+            <article class="canvas-cont">
+                <canvas class="memeCanvas" height="450" width="450" onclick="onCanvasClick(event)"></canvas>
+            </article>
+            <article class="editor-cont flex column align-center full-height">
+                <div class="ops-cont">
+                    <div class="line-ops-cont">
+                        <h2 class="editor-title">Edit the text lines</h2>
+                        <button class="btn-addLine" onclick="onAddLine()">Add Line</button>
+                        <button class="addline" onclick="onSwitchLine()">switch line</button>
+                        <button class="btn-decLineX" onclick="onChangeLineY(-1)">line ↑</button>
+                        <button class="btn-incLineX" onclick="onChangeLineY(1)">line ↓</button>
+                    </div>
+                    <div class="text-ops-cont">
+                        <input type="text" class="memeLineInput" placeholder="Enter the text"
+                            oninput="onTextChange(this)">
+                        <button class="btn-decFont" onclick="onChangeFontSize(1)">font ↑</button>
+                        <button class="btn-incFont" onclick="onChangeFontSize(-1)">font ↓</button>
+                    </div>
+                    <div class="emojis-cont"></div>
+                </div>
+                <button class="share-btn">Share</button>
+            </article>
+        </section>
+        <section class="gallery-cont hidden">
+            <article class="search-bar-cont">
+                <input type="text" class="search-bar" placeholder="Search (under construction)">
+            </article>
+            <div class="img-gallery"></div>
+        </section>
+    </main>
 
     <script src="js/main-service.js"></script>
     <script src="js/main.js"></script>

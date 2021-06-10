@@ -53,6 +53,8 @@ a:hover {
 /* Layout */
 
 /* Componenets */
+.main-content {
+}
 
 .main-header {
   background-color: #ffffff;
@@ -91,10 +93,35 @@ a:hover {
 /* Meme Editor */
 .main-editor-cont {
   display: flex;
+  height: 92vh;
+  position: relative;
 }
 
-.main-editor-cont > * {
-  width: 100%;
+.gallery-btn {
+  position: absolute;
+  font-family: roboto;
+  color: inherit;
+  left: 26px;
+  top: 24px;
+  border: none;
+  font-size: 0.875rem;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.canvas-cont {
+  flex-grow: 1.61;
+}
+
+.editor-cont {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f8f8;
+}
+
+.editor-cont .line-ops-cont {
+  padding-bottom: 100px;
 }
 
 /* Gallery */
