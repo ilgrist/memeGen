@@ -1,27 +1,28 @@
 var gMeme = {
   selectedImgId: 1,
   selectedLineIdx: 0,
+  linesNum: 0,
   lines: [
-    {
-      txt: 'Add title text here',
-      size: 40,
-      align: 'center',
-      color: 'white',
-      pos: {
-        x: 225,
-        y: 50,
-      },
-    },
-    {
-      txt: 'Add secondary text here',
-      size: 30,
-      align: 'center',
-      color: 'white',
-      pos: {
-        x: 225,
-        y: 350,
-      },
-    },
+    // {
+    //   txt: 'Add title text here',
+    //   size: 40,
+    //   align: 'center',
+    //   color: 'white',
+    //   pos: {
+    //     x: 225,
+    //     y: 50,
+    //   },
+    // },
+    // {
+    //   txt: 'Add secondary text here',
+    //   size: 30,
+    //   align: 'center',
+    //   color: 'white',
+    //   pos: {
+    //     x: 225,
+    //     y: 350,
+    //   },
+    // },
   ],
 };
 
@@ -49,6 +50,34 @@ var gImgs = [
 var gTextSizeMod = 2;
 var gLineXMod = 2;
 
+function addLine() {
+  var posY = 50;
+  var newLine = _createLine(posY);
+  gMeme.lines.push(newLine);
+  gMeme.linesNum++;
+}
+
+function checkIfFirstLine() {
+  if (!gMeme.linesNum) addLine();
+}
+// TODO maybe remove
+function getLinesNum() {
+  return gMeme.linesNum;
+}
+
+function _createLine(posY) {
+  return {
+    txt: 'Add text here',
+    size: 30,
+    align: 'center',
+    color: 'white',
+    pos: {
+      x: 225,
+      y: posY,
+    },
+  };
+}
+
 function getImgs() {
   return gImgs;
 }
@@ -73,7 +102,7 @@ function updateLineY(diff) {
   gMeme.lines[idx].pos.y += diff * gLineXMod;
 }
 
-function _loadFont() {
+function loadFont() {
   document.querySelector('.canvas-cont').style.fontFamily = 'impact';
 }
 

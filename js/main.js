@@ -1,13 +1,12 @@
 var gCanvas;
 var gCtx;
-var gLine = 0;
 
 function onInit() {
   console.log('init!');
   gCanvas = document.querySelector('canvas');
   gCtx = gCanvas.getContext('2d');
   drawImg();
-  _loadFont();
+  loadFont();
   renderImgs();
 }
 
@@ -37,6 +36,7 @@ function renderImgs() {
   });
   document.querySelector('.img-gallery').innerHTML = strHTML;
 }
+
 function onMemeClicked(el) {
   var memeId = el.dataset.imgid;
   updateImgId(memeId);
@@ -74,6 +74,7 @@ function drawLine(line, pos, isFocus) {
 }
 
 function onLineChange(el) {
+  checkIfFirstLine();
   const text = el.value;
   const idx = getSelLineIdx();
   gMeme.lines[idx].txt = text;
