@@ -56,12 +56,12 @@ a:hover {
 
 .main-header {
   background-color: #ffffff;
-  height: 3.125rem;
+  height: 3.1875rem;
   padding: 0 1.25rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0px 1px #dbdbdb;
+  box-shadow: inset 0px -1px #dbdbdb;
 }
 
 .logo-cont {
@@ -112,7 +112,6 @@ a:hover {
   border: 1px solid #e5e5e5;
   border-radius: 30px;
   padding: 1.25rem;
-  line-height: 18.75px;
   color: #989898;
   outline: none;
 }
@@ -123,11 +122,16 @@ a:hover {
 }
 
 .img-gallery {
-  height: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  grid-auto-rows: 100px;
-  gap: 10px 10px;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(210px, 1fr));
+  /* grid-auto-rows: 100px; */
+  gap: 25px 25px;
+  grid-auto-flow: dense;
+}
+
+.img-gallery .meme img {
+  border-radius: 10px;
 }
 
 .img-gallery .meme {

@@ -106,14 +106,17 @@ function onTextChange(el) {
   drawImg();
 }
 
+function onOpenMemes() {
+  console.log('opening memes (currently missing)');
+}
 function onOpenEditor() {
-  console.log('opening memes');
+  console.log('opening editor');
   document.querySelector('.img-gallery').classList.add('hidden');
   document.querySelector('.main-editor-cont').classList.remove('hidden');
 }
 
 function onOpenGallery() {
-  console.log('opening memes');
+  console.log('opening gallery');
   document.querySelector('.main-editor-cont').classList.add('hidden');
   document.querySelector('.img-gallery').classList.remove('hidden');
 }
