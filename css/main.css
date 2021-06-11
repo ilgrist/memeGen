@@ -119,11 +119,8 @@ button {
   background-color: transparent;
 }
 
-.canvas-cont {
+.canvas-align-helper {
   flex-grow: 1.61;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .meme-canvas {
@@ -135,6 +132,7 @@ button {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   background-color: #f8f8f8;
   padding: 1.875rem 1.875rem 0 1.875rem;
 }
@@ -187,10 +185,13 @@ button {
   color: black;
 }
 
+.share-btns-cont {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 1.875rem;
+}
 .share-btn {
-  position: absolute;
-  bottom: 3.25rem;
-  right: 1.875rem;
   width: 140px;
   height: 54px;
   background-color: #ff9826;
@@ -256,6 +257,10 @@ button {
   justify-content: space-between;
 }
 
+.flex.center {
+  justify-content: center;
+}
+
 .flex.align-center {
   align-items: center;
 }
@@ -301,5 +306,13 @@ button {
 
   .main-editor-cont .gallery-btn {
     display: none;
+  }
+
+  .share-btns-cont .share-btn {
+    width: 100%;
+  }
+
+  .canvas-cont canvas {
+    height: 300px;
   }
 }

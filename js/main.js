@@ -2,24 +2,23 @@ var gCanvas;
 var gCtx;
 
 function onInit() {
-  console.log('init!');
   gCanvas = document.querySelector('canvas');
   gCtx = gCanvas.getContext('2d');
-  drawImg();
   loadFont();
+  drawMeme();
   renderImgs();
 }
 
 function onSwitchLine() {
   switchLine();
   renderLineText();
-  drawImg();
+  drawMeme();
   focusOnTxtInput();
 }
 
 function onChangeFontSize(diff) {
   updateFontSize(diff);
-  drawImg();
+  drawMeme();
 }
 
 function renderLineText() {
@@ -37,7 +36,7 @@ function renderInput(val) {
 
 function onAddLine() {
   addLine();
-  drawImg();
+  drawMeme();
   clearTxtInput();
   focusOnTxtInput();
 }
@@ -48,7 +47,7 @@ function focusOnTxtInput() {
 
 function onChangeLineY(diff) {
   updateLineY(diff);
-  drawImg();
+  drawMeme();
 }
 
 function renderImgs() {
@@ -65,11 +64,11 @@ function renderImgs() {
 function onMemeClicked(el) {
   var memeId = el.dataset.imgid;
   updateImgId(memeId);
-  drawImg();
+  drawMeme();
   openEditor();
 }
 
-function drawImg() {
+function drawMeme() {
   var memeImg = getImgURL();
   var img = new Image();
   img.src = memeImg;
@@ -104,7 +103,7 @@ function onTextChange(el) {
   const text = el.value;
   const idx = getSelLineIdx();
   gMeme.lines[idx].txt = text;
-  drawImg();
+  drawMeme();
 }
 
 function onOpenMemes() {
