@@ -63,9 +63,26 @@ function removeLine(idx) {
   gMeme.lines.splice(idx, 1);
 }
 
-function alignText(direction) {
+function alignText(direction, canvasWidth) {
+  var posX;
+  const canvasWidthUnit = Math.floor(canvasWidth / 20);
+  switch (direction) {
+    case 'left':
+      posX = canvasWidthUnit;
+      break;
+    case 'center':
+      posX = Math.floor(canvasWidth / 2);
+      break;
+    case 'right':
+      posX = canvasWidth - canvasWidthUnit;
+      break;
+
+    default:
+      break;
+  }
   const idx = getSelLineIdx();
   gMeme.lines[idx].align = direction;
+  gMeme.lines[idx].pos.x = posX;
 }
 
 // TODO maybe remove

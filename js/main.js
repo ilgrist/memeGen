@@ -17,7 +17,8 @@ function onSwitchLine() {
 }
 
 function onAlignText(direction) {
-  alignText(direction);
+  const canvasSize = _getCanvasSize();
+  alignText(direction, +canvasSize.width);
   drawMeme();
 }
 
@@ -139,7 +140,6 @@ function toggleMenu() {
 
 function _getCanvasSize() {
   const canvas = document.querySelector('.meme-canvas');
-  console.log('canvas:', canvas);
   return {
     height: canvas.height,
     width: canvas.width,
