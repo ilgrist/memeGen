@@ -231,6 +231,15 @@ button {
 .text-ops-btn-cont .btn-decFont::after {
   content: '\f103';
 }
+.text-ops-btn-cont .btn-align.left::after {
+  content: '\f036';
+}
+.text-ops-btn-cont .btn-align.center::after {
+  content: '\f037';
+}
+.text-ops-btn-cont .btn-align.right::after {
+  content: '\f038';
+}
 
 .memeLineInput {
   width: 100%;

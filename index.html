@@ -51,13 +51,13 @@
                             </select>
                             <li class="btn-decFont" onclick="onChangeFontSize(1)"></li>
                             <li class="btn-incFont" onclick="onChangeFontSize(-1)"></li> |
-                            <li class="btn-align left" onclick="alignText('left')">⪙</li>
-                            <li class="btn-align center" onclick="alignText('center')">Ξ</li>
-                            <li class="btn-align right" onclick="alignText('right')">⪚</li> |
-                            <input type="color" class="selectTextColor" onchange="onChangeTextColor()">
-                            <input type="color" class="selectFillColor" onchange="onChangeFillColor()">
+                            <li class="btn-align left" onclick="alignText('left')"></li>
+                            <li class="btn-align center" onclick="alignText('center')"></li>
+                            <li class="btn-align right" onclick="alignText('right')"></li> |
+                            <input type="color" value="#000000" class="selectTextColor" onchange="onChangeTextColor()">
+                            <input type="color" value="#ffffff" class="selectFillColor" onchange="onChangeFillColor()">
                         </ul>
-                        <input type="text" class="memeLineInput" placeholder="Enter the text"
+                        <input type="text" class="memeLineInput" placeholder="Enter line text"
                             oninput="onTextChange(this)">
                     </div>
                     <div class="emojis-cont"></div>

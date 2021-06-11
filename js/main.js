@@ -89,7 +89,7 @@ function drawLines() {
 }
 
 function drawLine(line, pos, isFocus) {
-  const text = line.txt;
+  const text = line.txt.toUpperCase();
   gCtx.lineWidth = isFocus ? 3 : 2;
   gCtx.fillStyle = line.color;
   gCtx.font = `${line.size}px ` + 'impact';
