@@ -14,6 +14,11 @@
   src: url(/Day29-30-Sprint2/memeGen/fonts/Roboto/Roboto-Medium.ttf);
 }
 
+@font-face {
+  font-family: roboto-light;
+  src: url(/Day29-30-Sprint2/memeGen/fonts/Roboto/Roboto-Light.ttf);
+}
+
 /* BASE */
 
 html {
@@ -275,17 +280,29 @@ button {
 }
 
 @media (max-width: 375px) {
-  /* .main-nav {
+  .main-nav {
     position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: #ff9826;
     flex-direction: column;
-    height: 100vh;
-    width: 100vw;
-    justify-content: center;
-    background-color: orange;
-    color: white;
     z-index: 1;
-    margin: 0;
-  } */
+    color: white;
+    padding: 8.125rem;
+    font-size: 1.5rem;
+    font-family: roboto-light;
+  }
+
+  .main-header .main-nav > *:not(:last-child) {
+    margin-inline-end: 0;
+  }
+
+  .main-header .main-nav a:active {
+    color: white;
+    font-family: roboto;
+  }
+
   .gallery-cont {
     padding: 0 0.625rem;
   }
@@ -314,5 +331,6 @@ button {
 
   .canvas-cont canvas {
     height: 300px;
+    border-radius: 0;
   }
 }
