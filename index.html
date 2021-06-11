@@ -34,7 +34,7 @@
             <article class="editor-cont">
                 <div class="text-editor-cont">
                     <div class="line-ops-cont">
-                        <h2 class="editor-title">Edit the text lines</h2>
+                        <h2 class="editor-title">Edit text lines</h2>
                         <ul class="line-ops-btns-cont clean-list">
                             <li class="btn-addLine" onclick="onAddLine()"></li>
                             <li class="btn-switchLine" onclick="onSwitchLine()"></li>
@@ -54,8 +54,10 @@
                             <li class="btn-align left" onclick="onAlignText('left')"></li>
                             <li class="btn-align center" onclick="onAlignText('center')"></li>
                             <li class="btn-align right" onclick="onAlignText('right')"></li> |
-                            <input type="color" value="#000000" class="selectTextColor" onchange="onChangeTextColor()">
-                            <input type="color" value="#ffffff" class="selectFillColor" onchange="onChangeFillColor()">
+                            <input type="color" value="#000000" class="selectTextColor"
+                                onchange="onChangeTextColor(this.value)">
+                            <input type="color" value="#ffffff" class="selectFillColor"
+                                onchange="onChangeFillColor(this.value)">
                         </ul>
                         <input type="text" class="memeLineInput" placeholder="Enter line text"
                             oninput="onTextChange(this)">

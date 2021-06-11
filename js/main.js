@@ -14,6 +14,7 @@ function onSwitchLine() {
   renderLineText();
   drawMeme();
   focusOnTxtInput();
+  renderLineColors();
 }
 
 function onAlignText(direction) {
@@ -54,6 +55,21 @@ function focusOnTxtInput() {
 function onChangeLineY(diff) {
   updateLineY(diff);
   drawMeme();
+}
+
+function onChangeTextColor(color) {
+  changeTextColor(color);
+  drawMeme();
+}
+function onChangeFillColor(color) {
+  changeFillColor(color);
+  drawMeme();
+}
+
+function renderLineColors() {
+  const colors = getLineColors();
+  document.querySelector('.selectTextColor').value = colors.strokeColor;
+  document.querySelector('.selectFillColor').value = colors.fillColor;
 }
 
 function renderImgs() {
@@ -97,7 +113,8 @@ function drawLines() {
 function drawLine(line, pos, isFocus) {
   const text = line.txt.toUpperCase();
   gCtx.lineWidth = isFocus ? 3 : 2;
-  gCtx.fillStyle = line.color;
+  gCtx.fillStyle = line.fillColor;
+  gCtx.strokeStyle = line.strokeColor;
   gCtx.font = `${line.size}px ` + 'impact';
   gCtx.textAlign = line.align;
   gCtx.fillText(text, pos.x, pos.y);

@@ -61,6 +61,7 @@ function getNewLinePosY() {
 
 function removeLine(idx) {
   gMeme.lines.splice(idx, 1);
+  gMeme.selectedLineIdx = 0;
 }
 
 function alignText(direction, canvasWidth) {
@@ -95,12 +96,23 @@ function _createLine(posY) {
     txt: 'Add text here',
     size: 40,
     align: 'center',
-    color: 'white',
+    strokeColor: '#000000',
+    fillColor: '#ffffff',
     pos: {
       x: 225,
       y: posY,
     },
   };
+}
+
+function changeTextColor(color) {
+  var idx = getSelLineIdx();
+  gMeme.lines[idx].strokeColor = color;
+}
+function changeFillColor(color) {
+  console.log('color:', color);
+  var idx = getSelLineIdx();
+  gMeme.lines[idx].fillColor = color;
 }
 
 function getImgs() {
@@ -158,6 +170,14 @@ function getImgURL() {
 function getLinePos() {
   const idx = getSelLineIdx();
   return gMeme.lines[idx].pos;
+}
+
+function getLineColors() {
+  const idx = getSelLineIdx();
+  return {
+    strokeColor: gMeme.lines[idx].strokeColor,
+    fillColor: gMeme.lines[idx].fillColor,
+  };
 }
 
 function getLineText() {

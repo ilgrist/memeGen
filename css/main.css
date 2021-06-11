@@ -20,7 +20,7 @@
 }
 
 @font-face {
-  font-family: awesome-solid;
+  font-family: awesome;
   src: url(/Day29-30-Sprint2/memeGen/fonts/fontawesome/fa-solid-900.ttf);
 }
 
@@ -96,6 +96,7 @@ button {
   z-index: 2;
   color: black;
   display: none;
+  font-family: awesome;
 }
 
 .main-nav .mobile-nav-line {
@@ -173,7 +174,7 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: awesome-solid;
+  font-family: awesome;
 }
 
 .line-ops-btns-cont > * {
@@ -217,7 +218,7 @@ button {
   align-items: center;
   border-bottom: 1px solid #dedede;
   padding: 0.625rem;
-  font-family: awesome-solid;
+  font-family: awesome;
 }
 
 .text-ops-btn-cont > * {
@@ -375,11 +376,11 @@ button {
   }
 
   .mobile-menu-btn::after {
-    content: 'Ξ';
+    content: '\f0c9';
   }
 
   body.menuOpen .mobile-menu-btn::after {
-    content: 'X';
+    content: '\f00d';
     color: white;
   }
 
