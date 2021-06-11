@@ -197,10 +197,10 @@ button {
   content: '\f362';
   transform: rotate(90deg);
 }
-.line-ops-btns-cont .btn-decLineX::after {
+.line-ops-btns-cont .btn-decLineY::after {
   content: '\f063';
 }
-.line-ops-btns-cont .btn-incLineX::after {
+.line-ops-btns-cont .btn-incLineY::after {
   content: '\f062';
 }
 /* Text ops container */
@@ -218,6 +218,10 @@ button {
   border-bottom: 1px solid #dedede;
   padding: 0.625rem;
   font-family: awesome-solid;
+}
+
+.text-ops-btn-cont > * {
+  cursor: pointer;
 }
 
 .text-ops-btn-cont .selectFonts {

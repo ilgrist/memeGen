@@ -59,6 +59,15 @@ function getNewLinePosY() {
   return posY;
 }
 
+function removeLine(idx) {
+  gMeme.lines.splice(idx, 1);
+}
+
+function alignText(direction) {
+  const idx = getSelLineIdx();
+  gMeme.lines[idx].align = direction;
+}
+
 // TODO maybe remove
 function getLinesNum() {
   return gMeme.lines.length;

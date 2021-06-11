@@ -16,6 +16,11 @@ function onSwitchLine() {
   focusOnTxtInput();
 }
 
+function onAlignText(direction) {
+  alignText(direction);
+  drawMeme();
+}
+
 function onChangeFontSize(diff) {
   updateFontSize(diff);
   drawMeme();
@@ -106,6 +111,13 @@ function onTextChange(el) {
   drawMeme();
 }
 
+function onRemoveLine() {
+  const idx = getSelLineIdx();
+  removeLine(idx);
+  drawMeme();
+  clearTxtInput();
+  focusOnTxtInput();
+}
 function onOpenMemes() {
   console.log('opening memes (currently missing)');
 }
@@ -125,4 +137,12 @@ function toggleMenu() {
   document.body.classList.toggle('menuOpen');
 }
 
+function _getCanvasSize() {
+  const canvas = document.querySelector('.meme-canvas');
+  console.log('canvas:', canvas);
+  return {
+    height: canvas.height,
+    width: canvas.width,
+  };
+}
 function onCanvasClick(ev) {}
