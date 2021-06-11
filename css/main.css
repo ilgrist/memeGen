@@ -19,6 +19,11 @@
   src: url(/Day29-30-Sprint2/memeGen/fonts/Roboto/Roboto-Light.ttf);
 }
 
+@font-face {
+  font-family: awesome-solid;
+  src: url(/Day29-30-Sprint2/memeGen/fonts/fontawesome/fa-solid-900.ttf);
+}
+
 /* BASE */
 
 html {
@@ -64,8 +69,6 @@ button {
   align-items: center;
   color: #727272;
 }
-
-/* Layout */
 
 /* Componenets */
 .main-content {
@@ -152,6 +155,7 @@ button {
   padding: 1.875rem 1.875rem 0 1.875rem;
 }
 
+/* Line ops container */
 .line-ops-cont {
   display: flex;
   justify-content: space-between;
@@ -169,12 +173,37 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: awesome-solid;
 }
 
-.line-ops-btns-cont button {
+.line-ops-btns-cont > * {
+  cursor: pointer;
   width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.line-ops-btns-cont > *:not(:last-child) {
+  padding-right: 10px;
 }
 
+.line-ops-btns-cont .btn-addLine::after {
+  content: '\f0fe';
+}
+.line-ops-btns-cont .btn-removeLine::after {
+  content: '\f2ed';
+}
+.line-ops-btns-cont .btn-switchLine::after {
+  content: '\f362';
+  transform: rotate(90deg);
+}
+.line-ops-btns-cont .btn-decLineX::after {
+  content: '\f063';
+}
+.line-ops-btns-cont .btn-incLineX::after {
+  content: '\f062';
+}
+/* Text ops container */
 .text-ops-cont {
   display: flex;
   flex-direction: column;
@@ -188,6 +217,19 @@ button {
   align-items: center;
   border-bottom: 1px solid #dedede;
   padding: 0.625rem;
+  font-family: awesome-solid;
+}
+
+.text-ops-btn-cont .selectFonts {
+  border: 1px solid #ebebeb;
+  color: #989898;
+}
+
+.text-ops-btn-cont .btn-incFont::after {
+  content: '\f102';
+}
+.text-ops-btn-cont .btn-decFont::after {
+  content: '\f103';
 }
 
 .memeLineInput {
@@ -336,7 +378,8 @@ button {
     margin-inline-end: 0;
   }
 
-  .main-header .main-nav a:active {
+  .main-header .main-nav a:active,
+  .main-header .main-nav a:hover {
     color: white;
     font-family: roboto;
   }

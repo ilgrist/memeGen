@@ -123,7 +123,6 @@ function openGallery() {
 
 function toggleMenu() {
   document.body.classList.toggle('menuOpen');
-  console.log('menu open');
 }
 
 function onCanvasClick(ev) {}

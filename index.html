@@ -16,7 +16,7 @@
         </div>
         <button class="mobile-menu-btn clean-btn" onclick="toggleMenu()"></button>
         <ul class="main-nav clean-list flex space-between align-center">
-            <li><a href="#" onclick="onOpenMemes(), toggleMenu()">Memes</a></li>
+            <li><a href="#" onclick="openEditor(), toggleMenu()">Editor</a></li>
             <span class="mobile-nav-line">_</span>
             <li><a href="#" onclick="openGallery(), toggleMenu()">Gallery</a></li>
             <span class="mobile-nav-line">_</span>
@@ -35,27 +35,28 @@
                 <div class="text-editor-cont">
                     <div class="line-ops-cont">
                         <h2 class="editor-title">Edit the text lines</h2>
-                        <div class="line-ops-btns-cont">
-                            <button class="btn-addLine" onclick="onAddLine()">+</button>
-                            <button class="addline" onclick="onSwitchLine()">⇅</button>
-                            <button class="btn-decLineX" onclick="onChangeLineY(-1)">↑</button>
-                            <button class="btn-incLineX" onclick="onChangeLineY(1)">↓</button>
-                        </div>
+                        <ul class="line-ops-btns-cont clean-list">
+                            <li class="btn-addLine" onclick="onAddLine()"></li>
+                            <li class="btn-switchLine" onclick="onSwitchLine()"></li>
+                            <li class="btn-decLineX" onclick="onChangeLineY(-1)"></li>
+                            <li class="btn-incLineX" onclick="onChangeLineY(1)"></li>
+                            <li class="btn-removeLine" onclick="onRemoveLine()"></li>
+                        </ul>
                     </div>
                     <div class="text-ops-cont">
-                        <div class="text-ops-btn-cont">
+                        <ul class="text-ops-btn-cont clean-list">
                             <select name="fonts" class="selectFonts">
                                 <option value="impact">Impact</option>
                                 <option value="arial">Arial</option>
                             </select>
-                            <button class="btn-decFont" onclick="onChangeFontSize(1)">Â</button>
-                            <button class="btn-incFont" onclick="onChangeFontSize(-1)">Ā</button> |
-                            <button class="btn-align left" onclick="alignText('left')">⪙</button>
-                            <button class="btn-align center" onclick="alignText('center')">Ξ</button>
-                            <button class="btn-align right" onclick="alignText('right')">⪚</button> |
+                            <li class="btn-decFont" onclick="onChangeFontSize(1)"></li>
+                            <li class="btn-incFont" onclick="onChangeFontSize(-1)"></li> |
+                            <li class="btn-align left" onclick="alignText('left')">⪙</li>
+                            <li class="btn-align center" onclick="alignText('center')">Ξ</li>
+                            <li class="btn-align right" onclick="alignText('right')">⪚</li> |
                             <input type="color" class="selectTextColor" onchange="onChangeTextColor()">
                             <input type="color" class="selectFillColor" onchange="onChangeFillColor()">
-                        </div>
+                        </ul>
                         <input type="text" class="memeLineInput" placeholder="Enter the text"
                             oninput="onTextChange(this)">
                     </div>
