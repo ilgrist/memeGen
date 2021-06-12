@@ -5,7 +5,9 @@ function onInit() {
   gCanvas = document.querySelector('canvas');
   gCtx = gCanvas.getContext('2d');
   drawMeme();
-  renderImgs();
+  renderGallery();
+  updateGSavedMemes();
+  renderSaved();
 }
 
 // Bottom Editor buttons
@@ -18,6 +20,18 @@ function onDownloadMeme(elLink) {
   const data = gCanvas.toDataURL();
   elLink.href = data;
   elLink.download = 'myMeme';
+}
+
+// Saved Memes Gallery
+function renderSaved() {
+  var savedMemes = getSavedMemes();
+  var strHTML = '';
+  savedMemes.map((meme, idx) => {
+    strHTML += `<article data-imgId="${idx}" class="saved-meme" onclick="onSavedClicked(this)">
+                <img src="${meme.dataUrl}" alt class="saved-img">
+            </article>`;
+  });
+  document.querySelector('.saved-gallery').innerHTML = strHTML;
 }
 
 function onSwitchLine() {
@@ -87,7 +101,7 @@ function renderLineColors() {
   document.querySelector('.selectFillColor').value = colors.fillColor;
 }
 
-function renderImgs() {
+function renderGallery() {
   var imgs = getImgs();
   var strHTML = '';
   imgs.map((img) => {
@@ -155,7 +169,6 @@ function onOpenMemes() {
 }
 
 function openEditor() {
-  console.log('opening editor');
   document.querySelector('.gallery-cont').classList.add('hidden');
   document.querySelector('.saved-gallery-cont').classList.add('hidden');
   document.querySelector('.main-editor-cont').classList.remove('hidden');
@@ -167,7 +180,6 @@ function openGallery() {
   document.querySelector('.gallery-cont').classList.remove('hidden');
 }
 function openSaved() {
-  console.log('opening saved');
   document.querySelector('.main-editor-cont').classList.add('hidden');
   document.querySelector('.gallery-cont').classList.add('hidden');
   document.querySelector('.saved-gallery-cont').classList.remove('hidden');

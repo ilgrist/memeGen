@@ -41,11 +41,23 @@ function addLine() {
 
 function saveMeme(url) {
   gMeme.dataUrl = url;
-  var memes = loadFromStorage(MEMES_KEY);
+  var memes = getSavedMemes();
   if (!memes || !memes.length) memes = [];
   memes.push(gMeme);
   gSavedMemes = memes;
-  saveToStorage(MEMES_KEY, memes);
+  saveSavedMemes();
+}
+
+function updateGSavedMemes() {
+  gSavedMemes = loadFromStorage(MEMES_KEY);
+}
+
+function getSavedMemes() {
+  return gSavedMemes;
+}
+
+function saveSavedMemes() {
+  saveToStorage(MEMES_KEY, gSavedMemes);
 }
 
 function getNewLinePosY() {
