@@ -1,6 +1,8 @@
+const MEME_KEY = 'meme';
 var gMeme = {
   selectedImgId: 1,
   selectedLineIdx: 0,
+  dataUrl: undefined,
   lines: [],
 };
 
@@ -33,6 +35,11 @@ function addLine() {
   var newLine = _createLine(posY);
   gMeme.lines.push(newLine);
   gMeme.selectedLineIdx = gMeme.lines.length - 1;
+}
+
+function saveMeme(url) {
+  gMeme.dataUrl = url;
+  saveToStorage(MEME_KEY, gMeme);
 }
 
 function getNewLinePosY() {

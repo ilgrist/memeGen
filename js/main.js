@@ -8,12 +8,14 @@ function onInit() {
   renderImgs();
 }
 
-// Bottom buttons
-function onSaveMeme() {}
+// Bottom Editor buttons
+function onSaveMeme() {
+  const data = gCanvas.toDataURL();
+  saveMeme(data);
+}
 
 function onDownloadMeme(elLink) {
   const data = gCanvas.toDataURL();
-  console.log('DATA', data);
   elLink.href = data;
   elLink.download = 'myMeme';
 }
