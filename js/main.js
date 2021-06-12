@@ -153,16 +153,24 @@ function onRemoveLine() {
 function onOpenMemes() {
   console.log('opening memes (currently missing)');
 }
+
 function openEditor() {
   console.log('opening editor');
   document.querySelector('.gallery-cont').classList.add('hidden');
+  document.querySelector('.saved-gallery-cont').classList.add('hidden');
   document.querySelector('.main-editor-cont').classList.remove('hidden');
 }
 
 function openGallery() {
-  console.log('opening gallery');
   document.querySelector('.main-editor-cont').classList.add('hidden');
+  document.querySelector('.saved-gallery-cont').classList.add('hidden');
   document.querySelector('.gallery-cont').classList.remove('hidden');
+}
+function openSaved() {
+  console.log('opening saved');
+  document.querySelector('.main-editor-cont').classList.add('hidden');
+  document.querySelector('.gallery-cont').classList.add('hidden');
+  document.querySelector('.saved-gallery-cont').classList.remove('hidden');
 }
 
 function toggleMenu() {

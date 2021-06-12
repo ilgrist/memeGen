@@ -1,10 +1,12 @@
-const MEME_KEY = 'meme';
+const MEMES_KEY = 'memes';
 var gMeme = {
   selectedImgId: 1,
   selectedLineIdx: 0,
   dataUrl: undefined,
   lines: [],
 };
+
+var gSavedMemes;
 
 var gImgs = [
   { id: 1, url: 'img/memeImgs/1.jpg', keywords: ['happy'] },
@@ -39,7 +41,11 @@ function addLine() {
 
 function saveMeme(url) {
   gMeme.dataUrl = url;
-  saveToStorage(MEME_KEY, gMeme);
+  var memes = loadFromStorage(MEMES_KEY);
+  if (!memes || !memes.length) memes = [];
+  memes.push(gMeme);
+  gSavedMemes = memes;
+  saveToStorage(MEMES_KEY, memes);
 }
 
 function getNewLinePosY() {
@@ -140,7 +146,7 @@ function switchLine() {
 }
 
 function updateImgId(imgId) {
-  gMeme.selectedImgId = imgId;
+  gMeme.selectedImgId = +imgId;
 }
 
 function updateFontSize(diff) {
