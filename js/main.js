@@ -6,14 +6,14 @@ function onInit() {
   gCtx = gCanvas.getContext('2d');
   drawMeme();
   renderGallery();
-  updateGSavedMemes();
+  loadMemesFromLocal();
   renderSaved();
 }
 
 // Bottom Editor buttons
 function onSaveMeme() {
-  const data = gCanvas.toDataURL();
-  saveMeme(data);
+  saveMeme();
+  renderSaved();
 }
 
 function onDownloadMeme(elLink) {
@@ -24,15 +24,32 @@ function onDownloadMeme(elLink) {
 
 // Saved Memes Gallery
 function renderSaved() {
-  var savedMemes = getSavedMemes();
+  const savedMemes = getSavedMemes();
+  const elSavedGallery = document.querySelector('.saved-gallery');
+  if (!savedMemes || !savedMemes.length) return (elSavedGallery.innerHTML = '<h2>You have no saved memes</h2>');
   var strHTML = '';
   savedMemes.map((meme, idx) => {
-    strHTML += `<article data-imgId="${idx}" class="saved-meme" onclick="onSavedClicked(this)">
+    strHTML += `<article data-imgId="${idx}" class="saved-meme">
                 <img src="${meme.dataUrl}" alt class="saved-img">
+                <button class="remove-saved-btn" onclick="onRemoveSaved(${idx})">Remove</button>
+                <button class="edit-saved-btn" onclick="onEditSaved(${idx})">Edit</button>
             </article>`;
   });
   document.querySelector('.saved-gallery').innerHTML = strHTML;
 }
+
+function onRemoveSaved(idx) {
+  removeSaved(idx);
+  renderSaved();
+}
+
+function onEditSaved(idx) {
+  updatecurrMeme(idx);
+  drawMeme();
+  openEditor();
+}
+
+// Line buttons
 
 function onSwitchLine() {
   switchLine();
@@ -46,6 +63,7 @@ function onChangeFont(font) {
   changeFont(font);
   drawMeme();
 }
+
 function onAlignText(direction) {
   const canvasSize = _getCanvasSize();
   alignText(direction, +canvasSize.width);
@@ -127,6 +145,8 @@ function drawMeme() {
     gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
     drawLines();
   };
+  const url = gCanvas.toDataURL();
+  updateDataUrl(url);
 }
 
 function drawLines() {

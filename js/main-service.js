@@ -39,8 +39,8 @@ function addLine() {
   gMeme.selectedLineIdx = gMeme.lines.length - 1;
 }
 
-function saveMeme(url) {
-  gMeme.dataUrl = url;
+// Saving memes
+function saveMeme() {
   var memes = getSavedMemes();
   if (!memes || !memes.length) memes = [];
   memes.push(gMeme);
@@ -48,7 +48,7 @@ function saveMeme(url) {
   saveSavedMemes();
 }
 
-function updateGSavedMemes() {
+function loadMemesFromLocal() {
   gSavedMemes = loadFromStorage(MEMES_KEY);
 }
 
@@ -58,6 +58,19 @@ function getSavedMemes() {
 
 function saveSavedMemes() {
   saveToStorage(MEMES_KEY, gSavedMemes);
+}
+
+function updateDataUrl(newUrl) {
+  gMeme.dataUrl = newUrl;
+}
+
+function removeSaved(idx) {
+  gSavedMemes.splice(idx, 1);
+  saveSavedMemes();
+}
+
+function updatecurrMeme(idx) {
+  gMeme = gSavedMemes[idx];
 }
 
 function getNewLinePosY() {
