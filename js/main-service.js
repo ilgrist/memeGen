@@ -1,6 +1,5 @@
 const MEMES_KEY = 'memes';
 var gMeme;
-
 var gSavedMemes;
 
 var gImgs = [

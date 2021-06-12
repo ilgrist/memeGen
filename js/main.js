@@ -30,11 +30,12 @@ function renderSaved() {
   if (!savedMemes || !savedMemes.length) return (elSavedGallery.innerHTML = '<h2>You have no saved memes</h2>');
   var strHTML = '';
   savedMemes.map((meme, idx) => {
+    console.log();
     strHTML += `<article data-imgId="${idx}" class="saved-meme">
-                <img src="${meme.dataUrl}" alt class="saved-img">
-                <button class="remove-saved-btn" onclick="onRemoveSaved(${idx})">Remove</button>
-                <button class="edit-saved-btn" onclick="onEditSaved(${idx})">Edit</button>
-            </article>`;
+                  <img src="${meme.dataUrl}" alt class="saved-img">
+                  <button class="remove-saved-btn" onclick="onRemoveSaved(${idx})">Remove</button>
+                  <button class="edit-saved-btn" onclick="onEditSaved(${idx})">Edit</button>
+              </article>`;
   });
   document.querySelector('.saved-gallery').innerHTML = strHTML;
 }
@@ -186,9 +187,6 @@ function onRemoveLine() {
   clearTxtInput();
   focusOnTxtInput();
 }
-function onOpenMemes() {
-  console.log('opening memes (currently missing)');
-}
 
 function openEditor() {
   document.querySelector('.gallery-cont').classList.add('hidden');
@@ -219,4 +217,3 @@ function _getCanvasSize() {
     width: canvas.width,
   };
 }
-function onCanvasClick(ev) {}
