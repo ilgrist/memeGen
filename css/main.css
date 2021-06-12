@@ -5,11 +5,6 @@
 /* FONTS */
 
 @font-face {
-  font-family: impact;
-  src: url(/Day29-30-Sprint2/memeGen/fonts/impact/impact.ttf);
-}
-
-@font-face {
   font-family: roboto;
   src: url(/Day29-30-Sprint2/memeGen/fonts/Roboto/Roboto-Medium.ttf);
 }

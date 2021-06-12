@@ -45,9 +45,11 @@
                     </div>
                     <div class="text-ops-cont">
                         <ul class="text-ops-btn-cont clean-list">
-                            <select name="fonts" class="selectFonts">
-                                <option value="impact">Impact</option>
-                                <option value="arial">Arial</option>
+                            <select name="fonts" class="selectFonts" onchange="onChangeFont(this.value)">
+                                <option value="Impact">Impact</option>
+                                <option value="Arial">Arial</option>
+                                <option value="Trebuchet">Trebuchet</option>
+                                <option value="Georgia">Georgia</option>
                             </select>
                             <li class="btn-decFont" onclick="onChangeFontSize(1)"></li>
                             <li class="btn-incFont" onclick="onChangeFontSize(-1)"></li> |

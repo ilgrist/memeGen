@@ -98,6 +98,7 @@ function _createLine(posY) {
     align: 'center',
     strokeColor: '#000000',
     fillColor: '#ffffff',
+    font: 'Impact',
     pos: {
       x: 225,
       y: posY,
@@ -113,6 +114,11 @@ function changeFillColor(color) {
   console.log('color:', color);
   var idx = getSelLineIdx();
   gMeme.lines[idx].fillColor = color;
+}
+
+function changeFont(newFont) {
+  const idx = getSelLineIdx();
+  gMeme.lines[idx].font = newFont;
 }
 
 function getImgs() {
@@ -138,10 +144,6 @@ function updateFontSize(diff) {
 function updateLineY(diff) {
   const idx = getSelLineIdx();
   gMeme.lines[idx].pos.y += diff * gLineXMod;
-}
-
-function loadFont() {
-  document.querySelector('.canvas-cont').style.fontFamily = 'impact';
 }
 
 function getLines() {

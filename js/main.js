@@ -4,7 +4,6 @@ var gCtx;
 function onInit() {
   gCanvas = document.querySelector('canvas');
   gCtx = gCanvas.getContext('2d');
-  loadFont();
   drawMeme();
   renderImgs();
 }
@@ -17,6 +16,10 @@ function onSwitchLine() {
   renderLineColors();
 }
 
+function onChangeFont(font) {
+  changeFont(font);
+  drawMeme();
+}
 function onAlignText(direction) {
   const canvasSize = _getCanvasSize();
   alignText(direction, +canvasSize.width);
@@ -105,20 +108,19 @@ function drawLines() {
   lines.forEach((line, idx) => {
     selLineIdx = getSelLineIdx();
     var isFocus = selLineIdx === idx ? true : false;
-    var pos = line.pos;
-    drawLine(line, pos, isFocus);
+    drawLine(line, isFocus);
   });
 }
 
-function drawLine(line, pos, isFocus) {
+function drawLine(line, isFocus) {
   const text = line.txt.toUpperCase();
   gCtx.lineWidth = isFocus ? 3 : 2;
   gCtx.fillStyle = line.fillColor;
   gCtx.strokeStyle = line.strokeColor;
-  gCtx.font = `${line.size}px ` + 'impact';
+  gCtx.font = `${line.size}px ${line.font}`;
   gCtx.textAlign = line.align;
-  gCtx.fillText(text, pos.x, pos.y);
-  gCtx.strokeText(text, pos.x, pos.y);
+  gCtx.fillText(text, line.pos.x, line.pos.y);
+  gCtx.strokeText(text, line.pos.x, line.pos.y);
 }
 
 function onTextChange(el) {
