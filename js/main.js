@@ -4,6 +4,7 @@ var gCtx;
 function onInit() {
   gCanvas = document.querySelector('canvas');
   gCtx = gCanvas.getContext('2d');
+  resetMeme();
   drawMeme();
   renderGallery();
   loadMemesFromLocal();
@@ -40,6 +41,7 @@ function renderSaved() {
 
 function onRemoveSaved(idx) {
   removeSaved(idx);
+  drawMeme();
   renderSaved();
 }
 
@@ -144,9 +146,9 @@ function drawMeme() {
   img.onload = () => {
     gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
     drawLines();
+    const url = gCanvas.toDataURL('image/png');
+    updateDataUrl(url);
   };
-  const url = gCanvas.toDataURL();
-  updateDataUrl(url);
 }
 
 function drawLines() {
@@ -199,6 +201,7 @@ function openGallery() {
   document.querySelector('.saved-gallery-cont').classList.add('hidden');
   document.querySelector('.gallery-cont').classList.remove('hidden');
 }
+
 function openSaved() {
   document.querySelector('.main-editor-cont').classList.add('hidden');
   document.querySelector('.gallery-cont').classList.add('hidden');

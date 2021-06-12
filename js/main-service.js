@@ -1,10 +1,5 @@
 const MEMES_KEY = 'memes';
-var gMeme = {
-  selectedImgId: 1,
-  selectedLineIdx: 0,
-  dataUrl: undefined,
-  lines: [],
-};
+var gMeme;
 
 var gSavedMemes;
 
@@ -66,6 +61,7 @@ function updateDataUrl(newUrl) {
 
 function removeSaved(idx) {
   gSavedMemes.splice(idx, 1);
+  if (!gSavedMemes || !gSavedMemes.length) resetMeme();
   saveSavedMemes();
 }
 
@@ -223,4 +219,13 @@ function getLineColors() {
 function getLineText() {
   const idx = getSelLineIdx();
   return gMeme.lines[idx].txt;
+}
+
+function resetMeme() {
+  gMeme = {
+    selectedImgId: 1,
+    selectedLineIdx: 0,
+    dataUrl: undefined,
+    lines: [],
+  };
 }

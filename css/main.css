@@ -64,6 +64,12 @@ button {
   align-items: center;
   color: #727272;
 }
+/* Layout */
+
+.main-layout {
+  background-color: #e5e5e5;
+  padding: 1.8125rem 1.25rem;
+}
 
 /* Componenets */
 .main-content {
