@@ -253,18 +253,21 @@ button {
 
 .share-btns-cont {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   padding-bottom: 1.875rem;
+  gap: 1rem;
 }
-.share-btn {
-  width: 140px;
-  height: 54px;
+
+.share-btns-cont > button {
+  flex-grow: 1;
+  height: 3.125rem;
   background-color: #ff9826;
   border-radius: 30px;
   color: white;
   text-transform: uppercase;
 }
+
 /* Gallery */
 
 .gallery-cont {

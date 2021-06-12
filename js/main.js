@@ -8,6 +8,16 @@ function onInit() {
   renderImgs();
 }
 
+// Bottom buttons
+function onSaveMeme() {}
+
+function onDownloadMeme(elLink) {
+  const data = gCanvas.toDataURL();
+  console.log('DATA', data);
+  elLink.href = data;
+  elLink.download = 'myMeme';
+}
+
 function onSwitchLine() {
   switchLine();
   renderLineText();
