@@ -1,6 +1,8 @@
 var gCanvas;
 var gCtx;
 
+var gTimeoutWiggle;
+
 function onInit() {
   gCanvas = document.querySelector('canvas');
   gCtx = gCanvas.getContext('2d');
@@ -16,7 +18,7 @@ function onSaveMeme() {
   saveMeme();
   var elSavedBtn = document.querySelector('.saved-btn');
   elSavedBtn.classList.add('wiggle');
-  setTimeout(() => {
+  gTimeoutWiggle = setTimeout(() => {
     elSavedBtn.classList.remove('wiggle');
   }, 2000);
 }
@@ -205,6 +207,7 @@ function openGallery() {
 }
 
 function openSaved() {
+  gTimeoutWiggle.clearTimeout();
   renderSaved();
   document.querySelector('.main-editor-cont').classList.add('hidden');
   document.querySelector('.gallery-cont').classList.add('hidden');

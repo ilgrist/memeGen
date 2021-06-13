@@ -148,6 +148,10 @@ button {
   background-color: transparent;
 }
 
+.gallery-btn:hover {
+  color: #727272;
+}
+
 .canvas-align-helper {
   flex-grow: 1.61;
 }
@@ -335,11 +339,11 @@ button {
 
 .img-gallery .meme img {
   border-radius: 10px;
-  transition: box-shadow 0.3;
+  transition: box-shadow 0.3s;
 }
 
 .img-gallery .meme img:hover {
-  box-shadow: 0 0 5px 5px #ff9826;
+  box-shadow: 0 0 5px 5px rgba(255, 152, 38, 0.9);
 }
 
 /* Saved gallery */
@@ -474,6 +478,7 @@ button {
     grid-template-rows: repeat(1, 1fr);
     gap: 0.625rem 0.94rem;
   }
+
   /* mains editor cont */
   .main-editor-cont {
     flex-direction: column;
