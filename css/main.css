@@ -8,17 +8,17 @@
 
 @font-face {
   font-family: roboto;
-  src: url(/Day29-30-Sprint2/memeGen/fonts/Roboto/Roboto-Medium.ttf);
+  src: url(../fonts/Roboto/Roboto-Medium.ttf);
 }
 
 @font-face {
   font-family: roboto-light;
-  src: url(/Day29-30-Sprint2/memeGen/fonts/Roboto/Roboto-Light.ttf);
+  src: url(../fonts/Roboto/Roboto-Light.ttf);
 }
 
 @font-face {
   font-family: awesome;
-  src: url(/Day29-30-Sprint2/memeGen/fonts/fontawesome/fa-solid-900.ttf);
+  src: url(../fonts/fontawesome/fa-solid-900.ttf);
 }
 
 /* BASE */
@@ -226,6 +226,7 @@ button {
 .line-ops-btns-cont .btn-incLineY::after {
   content: '\f062';
 }
+
 /* Text ops container */
 .text-ops-cont {
   display: flex;
@@ -257,6 +258,9 @@ button {
   color: #989898;
 }
 
+.text-ops-btn-cont .selectTextColor {
+}
+
 .text-ops-btn-cont .btn-incFont::after {
   content: '\f102';
 }
@@ -271,6 +275,14 @@ button {
 }
 .text-ops-btn-cont .btn-align.right::after {
   content: '\f038';
+}
+
+.text-ops-btn-cont .lbl-textColor::after {
+  content: '\f53f';
+}
+
+.text-ops-btn-cont .lbl-fillColor::after {
+  content: '\f576';
 }
 
 .memeLineInput {
@@ -378,8 +390,7 @@ button {
   color: #ff9826;
 }
 
-/* Helpers */
-
+/* Helper */
 .hidden {
   display: none;
 }
@@ -415,7 +426,6 @@ button {
   border: none;
   background-color: transparent;
 }
-
 /* Responsive */
 @media (max-width: 375px) {
   body .main-nav {

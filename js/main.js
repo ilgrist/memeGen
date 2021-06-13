@@ -35,7 +35,7 @@ function renderSaved() {
   const elSavedGallery = document.querySelector('.saved-gallery');
   if (!savedMemes || !savedMemes.length) return (elSavedGallery.innerHTML = '<h2 class="saved-empty-text">You have no saved memes</h2>');
   var strHTML = '';
-  savedMemes.map((meme, idx) => {
+  savedMemes.forEach((meme, idx) => {
     strHTML += `<article data-imgId="${idx}" class="saved-meme">
                   <img src="${meme.dataUrl}" alt class="saved-img">
                   <button class="remove-saved-btn" onclick="onRemoveSaved(${idx})">Remove</button>
@@ -207,7 +207,6 @@ function openGallery() {
 }
 
 function openSaved() {
-  gTimeoutWiggle.clearTimeout();
   renderSaved();
   document.querySelector('.main-editor-cont').classList.add('hidden');
   document.querySelector('.gallery-cont').classList.add('hidden');
