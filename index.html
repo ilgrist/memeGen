@@ -11,7 +11,7 @@
 
 <body onload="onInit()">
     <header class="main-header">
-        <div class="logo-cont">
+        <div class="logo-cont" onclick="openPage('gallery')">
             <img src="img/LOGO.png" alt="" class="logo">
         </div>
         <button class="mobile-menu-btn clean-btn" onclick="toggleMenu()"></button>
@@ -25,7 +25,7 @@
     </header>
     <main class="main-content">
         <section class="page-section main-editor-cont hidden">
-            <button class="gallery-btn" onclick="openGallery()">&#60 &#32 Back to Gallery</button>
+            <button class="gallery-btn" onclick="openPage('gallery')">&#60 &#32 Back to Gallery</button>
             <article class="canvas-align-helper flex column center align-center">
                 <div class="canvas-cont">
                     <canvas class="meme-canvas" height="450" width="450" onclick="onCanvasClick(event)"></canvas>
