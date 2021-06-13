@@ -91,6 +91,12 @@ function onSwitchLine() {
   renderLineColors();
 }
 
+function onRemoveLine() {
+  const idx = getSelLineIdx();
+  removeLine(idx);
+  drawMeme();
+}
+
 function onChangeFont(font) {
   changeFont(font);
   drawMeme();
@@ -152,6 +158,7 @@ function renderLineColors() {
   document.querySelector('.selectFillColor').value = colors.fillColor;
 }
 
+// Gallery functions
 function renderGallery(imgs) {
   var strHTML = '';
   imgs.map((img) => {
