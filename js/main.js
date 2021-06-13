@@ -11,11 +11,14 @@ function onInit() {
   renderGallery();
   loadMemesFromLocal();
   renderSaved();
+  openPage('gallery');
 }
 
 function openPage(page) {
   const pageSections = document.querySelectorAll('.page-section');
-  pageSections.forEach((section) => section.classList.add('hidden'));
+  pageSections.forEach((section) => {
+    section.classList.add('hidden');
+  });
   var currPage = '.gallery-cont';
   switch (page) {
     case 'editor':
@@ -26,6 +29,8 @@ function openPage(page) {
       break;
   }
   document.querySelector(currPage).classList.remove('hidden');
+  var elGalBtn = document.querySelector(`.gallery-nav`);
+  page === 'gallery' ? (elGalBtn.style.color = '#FF9826') : (elGalBtn.style.color = '#989898');
 }
 
 // Bottom Editor buttons
