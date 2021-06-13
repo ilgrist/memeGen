@@ -30,7 +30,6 @@ function renderSaved() {
   if (!savedMemes || !savedMemes.length) return (elSavedGallery.innerHTML = '<h2>You have no saved memes</h2>');
   var strHTML = '';
   savedMemes.map((meme, idx) => {
-    console.log();
     strHTML += `<article data-imgId="${idx}" class="saved-meme">
                   <img src="${meme.dataUrl}" alt class="saved-img">
                   <button class="remove-saved-btn" onclick="onRemoveSaved(${idx})">Remove</button>
@@ -111,6 +110,7 @@ function onChangeTextColor(color) {
   changeTextColor(color);
   drawMeme();
 }
+
 function onChangeFillColor(color) {
   changeFillColor(color);
   drawMeme();
