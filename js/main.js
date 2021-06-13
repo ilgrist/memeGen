@@ -29,18 +29,28 @@ function openPage(page) {
       break;
   }
   document.querySelector(currPage).classList.remove('hidden');
-  var elGalBtn = document.querySelector(`.gallery-nav`);
-  page === 'gallery' ? (elGalBtn.style.color = '#FF9826') : (elGalBtn.style.color = '#989898');
+  stopWiggle();
 }
 
 // Bottom Editor buttons
 function onSaveMeme() {
   saveMeme();
+  wiggleSaveBtn();
+  renderSaved();
+}
+
+function wiggleSaveBtn() {
   var elSavedBtn = document.querySelector('.saved-btn');
   elSavedBtn.classList.add('wiggle');
-  gTimeoutWiggle = setTimeout(() => {
+  gTimeoutWiggle = setTimeout(function () {
     elSavedBtn.classList.remove('wiggle');
   }, 2000);
+}
+
+function stopWiggle() {
+  clearTimeout(gTimeoutWiggle);
+  var elSavedBtn = document.querySelector('.saved-btn');
+  elSavedBtn.classList.remove('wiggle');
 }
 
 function onDownloadMeme(elLink) {
@@ -74,7 +84,7 @@ function onRemoveSaved(idx) {
 function onEditSaved(idx) {
   updatecurrMeme(idx);
   drawMeme();
-  openEditor();
+  openPage('editor');
 }
 
 // Line buttons
@@ -163,7 +173,7 @@ function onMemeClicked(el) {
   var memeId = el.dataset.imgid;
   updateImgId(memeId);
   drawMeme();
-  openEditor();
+  openPage('editor');
 }
 
 function drawMeme() {
@@ -215,6 +225,7 @@ function openSaved() {
 
 function toggleMenu() {
   document.body.classList.toggle('menuOpen');
+  stopWiggle();
 }
 
 function _getCanvasSize() {

@@ -514,4 +514,13 @@ button {
     height: 300px;
     border-radius: 0;
   }
+
+  .editor-cont {
+    padding: 0.875rem 0.875rem 0 0.875rem;
+  }
+
+  .saved-gallery .saved-empty-text {
+    text-align: center;
+    left: 6%;
+  }
 }
