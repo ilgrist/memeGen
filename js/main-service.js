@@ -72,6 +72,7 @@ function updatecurrMeme(idx) {
   gMeme = gSavedMemes[idx];
 }
 
+// Line editing
 function getNewLinePosY() {
   var posY = 50;
   const linesNum = getLinesNum();
@@ -157,10 +158,6 @@ function changeFont(newFont) {
   gMeme.lines[idx].font = newFont;
 }
 
-function getImgs() {
-  return gImgs;
-}
-
 function switchLine() {
   var idx = getSelLineIdx();
   const linesNum = getLinesNum();
@@ -180,6 +177,33 @@ function updateFontSize(diff) {
 function updateLineY(diff) {
   const idx = getSelLineIdx();
   gMeme.lines[idx].pos.y += diff * gLineXMod;
+}
+
+function resetMeme() {
+  gMeme = {
+    selectedImgId: 1,
+    selectedLineIdx: 0,
+    dataUrl: undefined,
+    lines: [
+      {
+        txt: 'Add your text',
+        size: 40,
+        align: 'center',
+        strokeColor: '#000000',
+        fillColor: '#ffffff',
+        font: 'Impact',
+        pos: {
+          x: 225,
+          y: 50,
+        },
+      },
+    ],
+  };
+}
+// Get functions
+
+function getImgs() {
+  return gImgs;
 }
 
 function getLines() {
@@ -221,13 +245,4 @@ function getLineColors() {
 function getLineText() {
   const idx = getSelLineIdx();
   return gMeme.lines[idx].txt;
-}
-
-function resetMeme() {
-  gMeme = {
-    selectedImgId: 1,
-    selectedLineIdx: 0,
-    dataUrl: undefined,
-    lines: [],
-  };
 }

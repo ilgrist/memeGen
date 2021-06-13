@@ -29,6 +29,7 @@ function openPage(page) {
       break;
   }
   document.querySelector(currPage).classList.remove('hidden');
+  if (page === 'editor') focusOnTxtInput();
   stopWiggle();
 }
 
@@ -37,20 +38,6 @@ function onSaveMeme() {
   saveMeme();
   wiggleSaveBtn();
   renderSaved();
-}
-
-function wiggleSaveBtn() {
-  var elSavedBtn = document.querySelector('.saved-btn');
-  elSavedBtn.classList.add('wiggle');
-  gTimeoutWiggle = setTimeout(function () {
-    elSavedBtn.classList.remove('wiggle');
-  }, 2000);
-}
-
-function stopWiggle() {
-  clearTimeout(gTimeoutWiggle);
-  var elSavedBtn = document.querySelector('.saved-btn');
-  elSavedBtn.classList.remove('wiggle');
 }
 
 function onDownloadMeme(elLink) {
@@ -226,6 +213,20 @@ function openSaved() {
 function toggleMenu() {
   document.body.classList.toggle('menuOpen');
   stopWiggle();
+}
+
+function wiggleSaveBtn() {
+  var elSavedBtn = document.querySelector('.saved-btn');
+  elSavedBtn.classList.add('wiggle');
+  gTimeoutWiggle = setTimeout(function () {
+    elSavedBtn.classList.remove('wiggle');
+  }, 2000);
+}
+
+function stopWiggle() {
+  clearTimeout(gTimeoutWiggle);
+  var elSavedBtn = document.querySelector('.saved-btn');
+  elSavedBtn.classList.remove('wiggle');
 }
 
 function _getCanvasSize() {
