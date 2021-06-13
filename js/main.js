@@ -14,7 +14,11 @@ function onInit() {
 // Bottom Editor buttons
 function onSaveMeme() {
   saveMeme();
-  renderSaved();
+  var elSavedBtn = document.querySelector('.saved-btn');
+  elSavedBtn.classList.add('wiggle');
+  setTimeout(() => {
+    elSavedBtn.classList.remove('wiggle');
+  }, 2000);
 }
 
 function onDownloadMeme(elLink) {
@@ -201,6 +205,7 @@ function openGallery() {
 }
 
 function openSaved() {
+  renderSaved();
   document.querySelector('.main-editor-cont').classList.add('hidden');
   document.querySelector('.gallery-cont').classList.add('hidden');
   document.querySelector('.saved-gallery-cont').classList.remove('hidden');
