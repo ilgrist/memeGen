@@ -35,10 +35,10 @@ function addLine() {
 
 // Saving memes
 function saveMeme() {
-  var memes = getSavedMemes();
+  var memes = copyObj(gSavedMemes);
   if (!memes || !memes.length) memes = [];
   memes.push(gMeme);
-  gSavedMemes = memes;
+  gSavedMemes = copyObj(memes);
   saveSavedMemes();
 }
 
@@ -48,6 +48,10 @@ function loadMemesFromLocal() {
 
 function getSavedMemes() {
   return gSavedMemes;
+}
+
+function copyObj(obj) {
+  return JSON.parse(JSON.stringify(obj));
 }
 
 function saveSavedMemes() {
@@ -119,7 +123,6 @@ function alignText(direction, canvasWidth) {
   gMeme.lines[idx].pos.x = posX;
 }
 
-// TODO maybe remove
 function getLinesNum() {
   return gMeme.lines.length;
 }

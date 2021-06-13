@@ -27,7 +27,7 @@ function onDownloadMeme(elLink) {
 function renderSaved() {
   const savedMemes = getSavedMemes();
   const elSavedGallery = document.querySelector('.saved-gallery');
-  if (!savedMemes || !savedMemes.length) return (elSavedGallery.innerHTML = '<h2>You have no saved memes</h2>');
+  if (!savedMemes || !savedMemes.length) return (elSavedGallery.innerHTML = '<h2 class="saved-empty-text">You have no saved memes</h2>');
   var strHTML = '';
   savedMemes.map((meme, idx) => {
     strHTML += `<article data-imgId="${idx}" class="saved-meme">
