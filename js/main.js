@@ -8,7 +8,8 @@ function onInit() {
   gCtx = gCanvas.getContext('2d');
   resetMeme();
   drawMeme();
-  renderGallery();
+  var imgs = getImgs();
+  renderGallery(imgs);
   loadMemesFromLocal();
   renderSaved();
   openPage('gallery');
@@ -31,6 +32,12 @@ function openPage(page) {
   document.querySelector(currPage).classList.remove('hidden');
   if (page === 'editor') focusOnTxtInput();
   stopWiggle();
+}
+
+function onSearchImgs(search) {
+  const searchStr = search.toLowerCase();
+  const filteredImgs = filterImgs(searchStr);
+  renderGallery(filteredImgs);
 }
 
 // Bottom Editor buttons
@@ -145,8 +152,7 @@ function renderLineColors() {
   document.querySelector('.selectFillColor').value = colors.fillColor;
 }
 
-function renderGallery() {
-  var imgs = getImgs();
+function renderGallery(imgs) {
   var strHTML = '';
   imgs.map((img) => {
     strHTML += `<article data-imgId="${img.id}" class="meme" onclick="onMemeClicked(this)">

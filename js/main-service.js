@@ -4,7 +4,7 @@ var gSavedMemes;
 
 var gImgs = [
   { id: 1, url: 'img/memeImgs/1.jpg', keywords: ['happy'] },
-  { id: 2, url: 'img/memeImgs/2.jpg', keywords: ['scared'] },
+  { id: 2, url: 'img/memeImgs/2.jpg', keywords: ['happy'] },
   { id: 3, url: 'img/memeImgs/3.jpg', keywords: ['scared'] },
   { id: 4, url: 'img/memeImgs/4.jpg', keywords: ['scared'] },
   { id: 5, url: 'img/memeImgs/5.jpg', keywords: ['scared'] },
@@ -35,10 +35,10 @@ function addLine() {
 
 // Saving memes
 function saveMeme() {
-  var memes = copyObj(gSavedMemes);
+  var memes = clone(gSavedMemes);
   if (!memes || !memes.length) memes = [];
   memes.push(gMeme);
-  gSavedMemes = copyObj(memes);
+  gSavedMemes = clone(memes);
   saveSavedMemes();
 }
 
@@ -50,8 +50,8 @@ function getSavedMemes() {
   return gSavedMemes;
 }
 
-function copyObj(obj) {
-  return JSON.parse(JSON.stringify(obj));
+function clone(el) {
+  return JSON.parse(JSON.stringify(el));
 }
 
 function saveSavedMemes() {
@@ -246,3 +246,16 @@ function getLineText() {
   const idx = getSelLineIdx();
   return gMeme.lines[idx].txt;
 }
+
+function filterImgs(searchStr) {
+  const imgs = clone(gImgs);
+  var filteredImgs = imgs.filter((img) => {
+    var keyArr = img.keywords.filter((keyword) => {
+      return keyword.toLowerCase().startsWith(searchStr);
+    });
+    if (keyArr.length) return true;
+  });
+  return filteredImgs;
+}
+
+//   { id: 1, url: 'img/memeImgs/1.jpg', keywords: ['happy'] },
