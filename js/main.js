@@ -13,6 +13,21 @@ function onInit() {
   renderSaved();
 }
 
+function openPage(page) {
+  const pageSections = document.querySelectorAll('.page-section');
+  pageSections.forEach((section) => section.classList.add('hidden'));
+  var currPage = '.gallery-cont';
+  switch (page) {
+    case 'editor':
+      currPage = '.main-editor-cont';
+      break;
+    case 'saved':
+      currPage = '.saved-gallery-cont';
+      break;
+  }
+  document.querySelector(currPage).classList.remove('hidden');
+}
+
 // Bottom Editor buttons
 function onSaveMeme() {
   saveMeme();
@@ -184,26 +199,6 @@ function onTextChange(el) {
   const idx = getSelLineIdx();
   gMeme.lines[idx].txt = text;
   drawMeme();
-}
-
-function onRemoveLine() {
-  const idx = getSelLineIdx();
-  removeLine(idx);
-  drawMeme();
-  clearTxtInput();
-  focusOnTxtInput();
-}
-
-function openEditor() {
-  document.querySelector('.gallery-cont').classList.add('hidden');
-  document.querySelector('.saved-gallery-cont').classList.add('hidden');
-  document.querySelector('.main-editor-cont').classList.remove('hidden');
-}
-
-function openGallery() {
-  document.querySelector('.main-editor-cont').classList.add('hidden');
-  document.querySelector('.saved-gallery-cont').classList.add('hidden');
-  document.querySelector('.gallery-cont').classList.remove('hidden');
 }
 
 function openSaved() {
