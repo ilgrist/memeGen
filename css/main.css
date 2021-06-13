@@ -390,7 +390,7 @@ button {
   color: #ff9826;
 }
 
-/* Helper */
+/* Helpers */
 .hidden {
   display: none;
 }
@@ -425,6 +425,14 @@ button {
 .clean-btn {
   border: none;
   background-color: transparent;
+}
+
+.zeroPoint {
+  display: block;
+  opacity: 0;
+  margin: 0;
+  height: 0;
+  width: 0;
 }
 /* Responsive */
 @media (max-width: 375px) {

@@ -57,10 +57,11 @@
                             <li class="btn-align center" onclick="onAlignText('center')"></li>
                             <li class="btn-align right" onclick="onAlignText('right')"></li> |
                             <label class="lbl-textColor"><input type="color" value="#000000"
-                                    class="selectTextColor hidden" onchange="onChangeTextColor(this.value)"></label>
+                                    class="selectTextColor zeroPoint" onchange="onChangeTextColor(this.value)"
+                                    hidden></label>
                             <label class="lbl-fillColor"><input type="color" value="#ffffff"
-                                    class="selectFillColor hidden" name="fillColor"
-                                    onchange="onChangeFillColor(this.value)"></label>
+                                    class="selectFillColor zeroPoint" name="fillColor"
+                                    onchange="onChangeFillColor(this.value)" hidden></label>
                         </ul>
                         <input type="text" class="memeLineInput" placeholder="Enter line text"
                             oninput="onTextChange(this)">
